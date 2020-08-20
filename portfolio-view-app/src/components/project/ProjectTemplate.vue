@@ -1,8 +1,13 @@
-<template></template>
+<template>
+  <div>
+    <h1>project</h1>
+  </div>
+</template>
 
 <script>
-export default {};
+export default {
+  name: "ProjectTemplate",
+};
 </script>
 
-<style>
-</style>
+<style></style>
