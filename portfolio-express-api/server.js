@@ -1,4 +1,5 @@
 const express = require("express");
+
 const app = express();
 const cors = require("cors");
 
@@ -237,7 +238,7 @@ const data = [
 ];
 
 app.get("/", (req, res) => {
-  res.send("Hello world!!");
+  res.send({ users: data });
 });
 
 app.get("/portfolio", (req, res) => {
