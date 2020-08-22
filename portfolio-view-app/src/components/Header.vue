@@ -20,6 +20,7 @@ export default {
       users: [],
     };
   },
+
   methods: {
     getPortfolios: function() {
       this.$http
@@ -29,6 +30,7 @@ export default {
         });
     },
   },
+
   created: function() {
     this.getPortfolios();
   },

@@ -20,23 +20,21 @@ export default {
     };
   },
   methods: {
-    getPrpjects: function(id) {
+    getPortfolio: function() {
+      const id = this.$route.params.userId;
       this.$http
-        .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}/projects`)
+        .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
         .then(function(data) {
+          this.user = data.body.user;
           this.projects = data.body.user.projects;
-          console.log(this.projects);
         });
     },
   },
+  watch: {
+    user: "getPortfolio",
+  },
   created: function() {
-    this.getPrpjects(id);
-    const id = this.$route.params.userId;
-    this.$http
-      .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
-      .then(function(data) {
-        this.user = data.body.user;
-      });
+    this.getPortfolio();
   },
 };
 </script>
