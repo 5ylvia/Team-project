@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <my-header></my-header>
+    <my-header class="nav" v-if="this.$route.path !== '/'"></my-header>
     <router-view></router-view>
     <my-footer></my-footer>
   </div>
@@ -21,12 +21,30 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+a {
+  text-decoration: none;
+}
+a:active {
+  color: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
 }
 </style>

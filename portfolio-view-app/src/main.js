@@ -26,12 +26,12 @@ const routes = [
   },
   {
     name: "project",
-    path: "/portfolio/:userId/project",
+    path: "/portfolio/:userId/projects",
     component: ProjectTemplate,
   },
   {
     name: "edit",
-    path: "/portfolio/:userId/project/:projectId?/edit",
+    path: "/portfolio/:userId/projects/:projectTitle?/edit",
     component: EditProject,
   },
 ];

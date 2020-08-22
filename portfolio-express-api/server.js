@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 
 app.use(cors());
+app.use(express.json());
 
 const data = [
   {
@@ -10,6 +11,7 @@ const data = [
     name: "Sylvia Lee",
     sources: ["GRAPHIC", "UX/UI", "WEB"],
     description: "ac velit tellus. Eleifend id suspendisse ipsum etiam at.",
+    color: "#7A79C0",
     skills: [
       "Graphic Design",
       "HTML, CSS, JS",
@@ -24,11 +26,11 @@ const data = [
     projects: [
       {
         id: 1,
-        title: "Project name",
+        title: "1-Project name-s",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -38,11 +40,11 @@ const data = [
       },
       {
         id: 2,
-        title: "Project name",
+        title: "2-Project name-s",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -52,11 +54,11 @@ const data = [
       },
       {
         id: 3,
-        title: "Project name",
+        title: "3-Project name-s",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -66,11 +68,11 @@ const data = [
       },
       {
         id: 4,
-        title: "Project name",
+        title: "4-Project name-s",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -85,6 +87,7 @@ const data = [
     name: "Thomas Hendrikz",
     sources: ["GRAPHIC", "UX/UI", "WEB"],
     description: "ac velit tellus. Eleifend id suspendisse ipsum etiam at.",
+    color: "#7CB7ED",
     skills: [
       "Graphic Design",
       "HTML, CSS, JS",
@@ -99,11 +102,11 @@ const data = [
     projects: [
       {
         id: 1,
-        title: "Project name",
+        title: "1-Project name-t",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -113,11 +116,11 @@ const data = [
       },
       {
         id: 2,
-        title: "Project name",
+        title: "2-Project name-t",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -127,11 +130,11 @@ const data = [
       },
       {
         id: 3,
-        title: "Project name",
+        title: "3-Project name-t",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -141,11 +144,11 @@ const data = [
       },
       {
         id: 4,
-        title: "Project name",
+        title: "4-Project name-t",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -160,6 +163,7 @@ const data = [
     name: "Vincent Pollett",
     sources: ["GRAPHIC", "UX/UI", "WEB"],
     description: "ac velit tellus. Eleifend id suspendisse ipsum etiam at.",
+    color: "#C9B364",
     skills: [
       "Graphic Design",
       "HTML, CSS, JS",
@@ -174,11 +178,11 @@ const data = [
     projects: [
       {
         id: 1,
-        title: "Project name",
+        title: "1-Project name-v",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -188,11 +192,11 @@ const data = [
       },
       {
         id: 2,
-        title: "Project name",
+        title: "2-Project name-v",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -202,11 +206,11 @@ const data = [
       },
       {
         id: 3,
-        title: "Project name",
+        title: "3-Project name-v",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -216,11 +220,11 @@ const data = [
       },
       {
         id: 4,
-        title: "Project name",
+        title: "4-Project name-v",
         description: [
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
-          "Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "1-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
+          "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
           "/portfolio-view-app/src/asset/1.jpg",
@@ -236,12 +240,26 @@ app.get("/", (req, res) => {
   res.send("Hello world!!");
 });
 
-app.get("/users", (req, res) => {
+app.get("/portfolio", (req, res) => {
   res.send({ users: data });
 });
 
-app.get("/users/:id", (req, res) => {
-  console.log(req.params.id);
+app.get("/portfolio/:id", (req, res) => {
+  const id = req.params.id;
+  for (const user of data) {
+    if (user.id === id) {
+      res.send({ user: user });
+    }
+  }
+});
+
+app.get("/portfolio/:id/projects", (req, res) => {
+  const id = req.params.id;
+  for (const user of data) {
+    if (user.id === id) {
+      res.send({ projects: user.projects });
+    }
+  }
 });
 
 app.listen(3000, () => {
