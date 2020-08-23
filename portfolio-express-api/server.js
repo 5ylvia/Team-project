@@ -34,9 +34,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
       {
@@ -48,9 +48,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
       {
@@ -62,9 +62,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
       {
@@ -76,9 +76,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
     ],
@@ -110,9 +110,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
       {
@@ -124,9 +124,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
       {
@@ -138,9 +138,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
       {
@@ -152,9 +152,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
     ],
@@ -186,9 +186,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
       {
@@ -200,9 +200,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
       {
@@ -214,9 +214,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
       {
@@ -228,9 +228,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/asset/1.jpg",
-          "/portfolio-view-app/src/asset/2.jpg",
-          "/portfolio-view-app/src/asset/3.jpg",
+          "/portfolio-view-app/src/assets/1.jpg",
+          "/portfolio-view-app/src/assets/2.jpg",
+          "/portfolio-view-app/src/assets/3.jpg",
         ],
       },
     ],
@@ -254,13 +254,8 @@ app.get("/portfolio/:id", (req, res) => {
   }
 });
 
-app.get("/portfolio/:id/projects", (req, res) => {
-  const id = req.params.id;
-  for (const user of data) {
-    if (user.id === id) {
-      res.send({ projects: user.projects });
-    }
-  }
+app.get("/portfolio/:id/projects/:id", (req, res) => {
+  res.end();
 });
 
 app.listen(3000, () => {
