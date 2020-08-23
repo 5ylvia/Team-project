@@ -31,7 +31,7 @@ const routes = [
   },
   {
     name: "edit",
-    path: "/portfolio/:userId/projects/:projectTitle?/edit",
+    path: "/portfolio/:userId/projects/:projectId?/edit",
     component: EditProject,
   },
 ];

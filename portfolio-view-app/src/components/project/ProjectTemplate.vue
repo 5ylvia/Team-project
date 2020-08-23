@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>{{ project.title }}</h1>
+    <h4>{{ project.description }}</h4>
   </div>
 </template>
 
@@ -13,11 +14,12 @@ export default {
     };
   },
   created: function() {
-    const id = this.$route.params.userId.projectId;
+    const userId = this.$route.params.userId;
+    const id = this.$route.params.projectId;
     this.$http
-      .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
-      .then(function(data) {
-        this.project = data.body.user.project;
+      .get(`${process.env.VUE_APP_API_URL}/portfolio/${userId}/projects/${id}`)
+      .then(function() {
+        this.project = this.$route.params.project;
       });
   },
 };

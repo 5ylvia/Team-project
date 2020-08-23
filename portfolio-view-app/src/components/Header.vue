@@ -5,7 +5,10 @@
     </router-link>
     <li v-for="(user, index) in users" v-bind:key="index" class="links">
       <router-link
-        v-bind:to="{ name: 'portfolio', params: { userId: user.id } }"
+        v-bind:to="{
+          name: 'portfolio',
+          params: { userId: user.id },
+        }"
         >{{ user.id }}</router-link
       >
     </li>
