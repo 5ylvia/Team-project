@@ -9,7 +9,6 @@ export default {
   name: "ContactButton",
   methods: {
     updateShowModal() {
-      console.log("change modal clicked");
       this.$emit("changeModal");
     },
   },

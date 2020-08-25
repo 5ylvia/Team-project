@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- Skills -->
-    <section>
+    <!-- <section>
       <div class="skil-container">
-        <h1 :style="{ color: color }" class="skills">
+        <h1 class="skills" :style="{ color: colorCode }">
           {{ user.sources[0] }}
           <br />
           {{ user.sources[1] }}
@@ -11,7 +11,7 @@
           {{ user.sources[2] }}
         </h1>
       </div>
-    </section>
+    </section>-->
 
     <!-- Contact Button -->
     <ContactButton v-on:changeModal="showModal = true" />
@@ -23,7 +23,7 @@
 
     <!-- Contact  -->
     <transition name="slide" appear v-if="showModal">
-      <ContactTemplate />
+      <ContactTemplate v-on:changeModal="showModal = false" />
     </transition>
 
     <!-- Name -->
@@ -61,7 +61,7 @@ export default {
     return {
       showModal: false,
       user: {
-        color: "",
+        colorCode: String,
         projects: [],
       },
       //   sources: {},
@@ -76,7 +76,7 @@ export default {
           this.user = data.body.user;
           //   this.sources = data.body.user.sources;
           this.projects = data.body.user.projects;
-          this.color = data.body.user.color;
+          this.colorCode = data.body.user.color;
         });
     },
   },
@@ -90,7 +90,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .skil-container {
   width: 675px;
   margin: 200px 80px 80px 80px;
