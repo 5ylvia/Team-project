@@ -2,7 +2,7 @@
   <div>
     <ul v-for="(source, index) in user.sources" v-bind:key="index + 10">
       <!-- Add number to make the key unique -->
-      <li :style="{ color: color }" class="skills">{{ source }}</li>
+      <li :style="{ color: user.color }" class="skills">{{ source }}</li>
     </ul>
     <h1>{{ user.name }}</h1>
 
@@ -16,8 +16,7 @@
           name: 'project',
           params: { userId: user.id, project: project },
         }"
-        >{{ project.title }}</router-link
-      >
+      >{{ project.title }}</router-link>
     </div>
   </div>
 </template>
@@ -25,34 +24,28 @@
 <script>
 export default {
   name: "PortfolioTemplate",
-  data: function() {
+  data: function () {
     return {
-      user: {
-        color: "",
-        projects: [],
-      },
-      //   sources: {},
+      user: {},
     };
   },
   methods: {
-    getPortfolio: function() {
+    currentPortfolio: function () {
       const id = this.$route.params.userId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
-        .then(function(data) {
+        .then(function (data) {
           this.user = data.body.user;
-          //   this.sources = data.body.user.sources;
-          this.projects = data.body.user.projects;
-          this.color = data.body.user.color;
         });
     },
   },
-  watch: {
-    // call again the method if the route changes
-    $route: "getPortfolio",
+  computed: {
+    portfolio() {
+      return this.currentPortfolio();
+    },
   },
-  created: function() {
-    this.getPortfolio();
+  created: function () {
+    this.currentPortfolio();
   },
 };
 </script>

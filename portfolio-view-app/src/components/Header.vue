@@ -3,14 +3,18 @@
     <router-link v-bind:to="'/'">
       <img src="@/assets/logo.svg/" alt="stv logo" class="logo" />
     </router-link>
-    <li v-for="(user, index) in users" v-bind:key="index" class="links">
+    <li
+      v-for="(user, index) in users"
+      v-bind:key="index"
+      class="links"
+      v-on:click="activeColor(user)"
+    >
       <router-link
         v-bind:to="{
           name: 'portfolio',
           params: { userId: user.id },
         }"
-        >{{ user.id }}</router-link
-      >
+      >{{ user.id }}</router-link>
     </li>
   </header>
 </template>
@@ -18,23 +22,29 @@
 <script>
 export default {
   name: "Header",
-  data: function() {
+  data: function () {
     return {
       users: [],
+      color: "",
     };
   },
 
   methods: {
-    getPortfolios: function() {
+    getPortfolios: function () {
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolio`)
-        .then(function(data) {
+        .then(function (data) {
           this.users = data.body.users;
         });
     },
+    activeColor: function (user) {
+      this.color = user.color;
+      // event.target.color = color;
+      console.log(user.color);
+      console.log(event.target);
+    },
   },
-
-  created: function() {
+  created: function () {
     this.getPortfolios();
   },
 };
@@ -60,6 +70,8 @@ ul {
 li {
   font-size: 48px;
   font-weight: 300;
-  color: grey;
+}
+a {
+  color: #c8bfba;
 }
 </style>

@@ -1,8 +1,8 @@
-<template> </template>
+<template></template>
 
 <script>
 export default {
-  name: "EditProject",
+  name: "EditUser",
 };
 </script>
 

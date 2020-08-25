@@ -4,7 +4,7 @@ import App from "./App.vue";
 import Home from "./components/home/Home.vue";
 import PortfolioTemplate from "./components/portfolio/PortfolioTemplate.vue";
 import ProjectTemplate from "./components/project/ProjectTemplate.vue";
-import EditProject from "./components/edit-project/EditProject.vue";
+import EditUser from "./components/edit-user/EditUser.vue";
 
 import VueResource from "vue-resource";
 
@@ -23,6 +23,7 @@ const routes = [
     name: "portfolio",
     path: "/portfolio/:userId",
     component: PortfolioTemplate,
+    props: true,
   },
   {
     name: "project",
@@ -31,8 +32,8 @@ const routes = [
   },
   {
     name: "edit",
-    path: "/portfolio/:userId/projects/:projectId?/edit",
-    component: EditProject,
+    path: "/portfolio/:userId?/edit",
+    component: EditUser,
   },
 ];
 

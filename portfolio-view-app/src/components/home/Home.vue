@@ -18,21 +18,21 @@
 <script>
 export default {
   name: "Home",
-  data: function() {
+  data: function () {
     return {
       users: [],
     };
   },
   methods: {
-    getPortfolios: function() {
+    getPortfolios: function () {
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolio`)
-        .then(function(data) {
+        .then(function (data) {
           this.users = data.body.users;
         });
     },
   },
-  created: function() {
+  created: function () {
     this.getPortfolios();
   },
 };
