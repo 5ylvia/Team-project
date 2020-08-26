@@ -238,23 +238,25 @@ const data = [
 ];
 
 app.get("/", (req, res) => {
-  res.send({ users: data });
+  res.send({ portfolios: data });
 });
 
 app.get("/portfolio", (req, res) => {
-  res.send({ users: data });
+  res.send({ portfolios: data });
 });
 
 app.get("/portfolio/:id", (req, res) => {
   const id = req.params.id;
-  for (const user of data) {
-    if (user.id === id) {
-      res.send({ user: user });
+  for (const portfolio of data) {
+    if (portfolio.id === id) {
+      res.send({ portfolio: portfolio });
     }
   }
 });
 
 app.get("/portfolio/:id/projects/:id", (req, res) => {
+  // const id = req.params.id;
+  // console.log(id);
   res.end();
 });
 
