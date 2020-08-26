@@ -4,7 +4,7 @@ import App from "./App.vue";
 import Home from "./components/home/Home.vue";
 import PortfolioTemplate from "./components/portfolio/PortfolioTemplate.vue";
 import ProjectTemplate from "./components/project/ProjectTemplate.vue";
-import EditUser from "./components/edit-user/EditUser.vue";
+import EditPortfolio from "./components/edit-portfolio/EditPortfolio.vue";
 
 import VueResource from "vue-resource";
 
@@ -21,19 +21,19 @@ const routes = [
   },
   {
     name: "portfolio",
-    path: "/portfolio/:userId",
+    path: "/portfolio/:portfolioId",
     component: PortfolioTemplate,
     props: true,
   },
   {
     name: "project",
-    path: "/portfolio/:userId/projects",
+    path: "/portfolio/:portfolioId/projects",
     component: ProjectTemplate,
   },
   {
     name: "edit",
-    path: "/portfolio/:userId?/edit",
-    component: EditUser,
+    path: "/portfolio/:portfolioId?/edit",
+    component: EditPortfolio,
   },
 ];
 

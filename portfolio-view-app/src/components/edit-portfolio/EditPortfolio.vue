@@ -2,8 +2,9 @@
 
 <script>
 export default {
-  name: "EditUser",
+  name: "EditPortfolio",
 };
 </script>
 
-<style></style>
+<style>
+</style>
