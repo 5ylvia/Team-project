@@ -254,9 +254,9 @@ app.get("/portfolio/:id", (req, res) => {
   }
 });
 
-app.get("/portfolio/:id/projects/:id", (req, res) => {
-  // const id = req.params.id;
-  // console.log(id);
+app.get("/portfolio/:id/projects", (req, res) => {
+  const id = req.params.id;
+  console.log(id);
   res.end();
 });
 

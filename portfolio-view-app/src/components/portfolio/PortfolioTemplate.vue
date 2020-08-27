@@ -39,7 +39,7 @@
       <router-link
         v-bind:to="{
           name: 'project',
-          params: { portfolioId: portfolio.id, project: project },
+          params: { portfolioId: portfolio.id, projectId: project.id },
         }"
       >{{ project.title }}</router-link>
     </div>
@@ -51,6 +51,7 @@
 <script>
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
+
 export default {
   components: {
     ContactButton,
@@ -81,10 +82,8 @@ export default {
         });
     },
   },
-  computed: {
-    portfolio() {
-      return this.currentPortfolio();
-    },
+  watch: {
+    $route: "currentPortfolio",
   },
   created: function () {
     this.currentPortfolio();

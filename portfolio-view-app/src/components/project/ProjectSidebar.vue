@@ -1,10 +1,10 @@
 <template>
-  <div></div>
+  <div>side bar</div>
 </template>
 
 <script>
 export default {
-  name: "EditPortfolio",
+  name: "ProjectSidebar",
 };
 </script>
 

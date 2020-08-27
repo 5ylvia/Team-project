@@ -1,14 +1,14 @@
 <template>
   <div class="home">
     <div class="linkContainer">
-      <div v-for="(user, index) in users" :key="index" class="nameBox">
+      <div v-for="(portfolio, index) in portfolios" :key="index" class="nameBox">
         <router-link
           :to="{
             name: 'portfolio',
-            params: { userId: user.id },
+            params: { portfolioId: portfolio.id },
           }"
         >
-          <h1 class="nameBox__name">{{ user.id }}</h1>
+          <h1 class="nameBox__name">{{ portfolio.id }}</h1>
         </router-link>
       </div>
     </div>
@@ -20,7 +20,7 @@ export default {
   name: "Home",
   data: function () {
     return {
-      users: [],
+      portfolios: [],
     };
   },
   methods: {
@@ -28,7 +28,7 @@ export default {
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolio`)
         .then(function (data) {
-          this.users = data.body.users;
+          this.portfolios = data.body.portfolios;
         });
     },
   },
