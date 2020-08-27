@@ -3,14 +3,18 @@
     <router-link v-bind:to="'/'">
       <img src="@/assets/logo.svg/" alt="stv logo" class="logo" />
     </router-link>
-    <li v-for="(user, index) in users" v-bind:key="index" class="links">
+    <li
+      v-for="(portfolio, index) in portfolios"
+      v-bind:key="index"
+      class="links"
+      v-on:click="activeColor(portfolio)"
+    >
       <router-link
         v-bind:to="{
           name: 'portfolio',
-          params: { userId: user.id },
+          params: { portfolioId: portfolio.id },
         }"
-        >{{ user.id }}</router-link
-      >
+      >{{ portfolio.id }}</router-link>
     </li>
   </header>
 </template>
@@ -18,23 +22,28 @@
 <script>
 export default {
   name: "Header",
-  data: function() {
+  data: function () {
     return {
-      users: [],
+      portfolios: [],
+      color: "",
     };
   },
 
   methods: {
-    getPortfolios: function() {
+    getPortfolios: function () {
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolio`)
-        .then(function(data) {
-          this.users = data.body.users;
+        .then(function (data) {
+          this.portfolios = data.body.portfolios;
         });
     },
+    activeColor: function (portfolio) {
+      this.color = portfolio.color;
+      console.log(this.color);
+      // console.log(event.target);
+    },
   },
-
-  created: function() {
+  created: function () {
     this.getPortfolios();
   },
 };
@@ -58,8 +67,15 @@ ul {
   justify-content: space-between;
 }
 li {
+  text-transform: uppercase;
+
   font-size: 48px;
   font-weight: 300;
-  color: grey;
+}
+a {
+  color: #c8bfba;
+}
+.router-link-exact-active {
+  color: var(--color);
 }
 </style>
