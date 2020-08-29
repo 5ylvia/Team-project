@@ -3,7 +3,7 @@
     <!-- Skills -->
     <section>
       <div class="skil-container">
-        <h1 class="skills" :style="{ color: colorCode }">
+        <h1 class="skills" :style="portfolio">
           {{ portfolio.sources[0] }}
           <br />
           {{ portfolio.sources[1] }}
@@ -65,9 +65,7 @@ export default {
       portfolio: {
         projects: [],
         sources: [],
-        color: String,
       },
-      colorCode: String,
     };
   },
   methods: {
@@ -79,7 +77,6 @@ export default {
           this.portfolio = data.body.portfolio;
           this.projects = data.body.portfolio.projects;
           this.sources = data.body.portfolio.sources;
-          this.colorCode = data.body.portfolio.color;
         });
     },
   },

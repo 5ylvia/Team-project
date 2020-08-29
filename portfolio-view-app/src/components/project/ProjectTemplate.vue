@@ -2,9 +2,9 @@
   <div>
     <!-- <h1>{{ projectId }}</h1> -->
     <project-sidebar></project-sidebar>
-    <!-- <div v-for="(detail, index) in displayDetails" v-bind:key="index"> -->
-    <project-content></project-content>
-    <!-- </div> -->
+    <div v-for="(detail, index) in displayDetails" v-bind:key="index">
+      <project-content></project-content>
+    </div>
     <h3>{{project.id}}</h3>
   </div>
 </template>
