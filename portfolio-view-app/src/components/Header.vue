@@ -7,7 +7,7 @@
       v-for="(portfolio, index) in portfolios"
       v-bind:key="index"
       class="links"
-      v-on:click="activeColor(portfolio)"
+      :style="portfolio"
     >
       <router-link
         v-bind:to="{
@@ -25,7 +25,6 @@ export default {
   data: function () {
     return {
       portfolios: [],
-      color: "",
     };
   },
 
@@ -36,11 +35,6 @@ export default {
         .then(function (data) {
           this.portfolios = data.body.portfolios;
         });
-    },
-    activeColor: function (portfolio) {
-      this.color = portfolio.color;
-      console.log(this.color);
-      // console.log(event.target);
     },
   },
   created: function () {
