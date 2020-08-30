@@ -26,66 +26,56 @@
       <ContactTemplate :portfolio="portfolio" v-on:changeModal="showModal = false" />
     </transition>
 
-    <!-- Name -->
-    <h1>{{ portfolio.name }}</h1>
-
-    <!-- ******************************* -->
-    <!-- ******************************* -->
     <!-- Project container -->
     <div class="content" v-for="(project, id) in portfolio.projects" v-bind:key="id">
-      <!-- generating all the images -->
-      <div v-for="(image, index) in project.images" v-bind:key="index + 20">{{ image }}</div>
-      <!-- Project Name and link -->
-      <router-link
-        v-bind:to="{
-          name: 'project',
-          params: { portfolioId: portfolio.id, projectId: project.id },
-        }"
-      >{{ project.title }}</router-link>
+      <PortfolioProjects v-if="id % 2 == 0" :project="project" :portfolio="portfolio" />
+      <PortfolioProjectsOdds v-else :project="project" :portfolio="portfolio" />
     </div>
-    <!-- ******************************* -->
-    <!-- ******************************* -->
   </div>
 </template>
 
 <script>
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
+import PortfolioProjects from "./PortfolioProjects";
+import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
 
 export default {
   components: {
     ContactButton,
     ContactTemplate,
+    PortfolioProjects,
+    PortfolioProjectsOdds
   },
   name: "PortfolioTemplate",
   //test
-  data: function () {
+  data: function() {
     return {
       showModal: false,
       portfolio: {
         projects: [],
-        sources: [],
-      },
+        sources: []
+      }
     };
   },
   methods: {
-    currentPortfolio: function () {
+    currentPortfolio: function() {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
-        .then(function (data) {
+        .then(function(data) {
           this.portfolio = data.body.portfolio;
           this.projects = data.body.portfolio.projects;
           this.sources = data.body.portfolio.sources;
         });
-    },
+    }
   },
   watch: {
-    $route: "currentPortfolio",
+    $route: "currentPortfolio"
   },
-  created: function () {
+  created: function() {
     this.currentPortfolio();
-  },
+  }
 };
 </script>
 
@@ -104,9 +94,6 @@ export default {
   padding-left: 20px;
   padding-bottom: 10px;
   border-left: 5px solid;
-}
-.content {
-  height: 200px;
 }
 
 .modal-overlay {
