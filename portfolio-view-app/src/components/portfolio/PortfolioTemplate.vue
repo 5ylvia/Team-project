@@ -33,16 +33,18 @@
     <!-- ******************************* -->
     <!-- Project container -->
     <div class="content" v-for="(project, id) in portfolio.projects" v-bind:key="id">
-      <!-- generating all the images -->
-      <div v-for="(image, index) in project.images" v-bind:key="index + 20">{{ image }}</div>
-      <!-- Project Name and link -->
-      <router-link
+      <PortfolioProjects :project="project" />
+    </div>
+
+    <!-- <div v-for="(image, index) in project.images" v-bind:key="index + 20">{{ image }}</div> -->
+    <!-- Project Name and link -->
+    <!-- <router-link
         v-bind:to="{
           name: 'project',
           params: { portfolioId: portfolio.id, projectId: project.id },
         }"
       >{{ project.title }}</router-link>
-    </div>
+    </div>-->
     <!-- ******************************* -->
     <!-- ******************************* -->
   </div>
@@ -51,11 +53,13 @@
 <script>
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
+import PortfolioProjects from "./PortfolioProjects";
 
 export default {
   components: {
     ContactButton,
     ContactTemplate,
+    PortfolioProjects,
   },
   name: "PortfolioTemplate",
   //test
