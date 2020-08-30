@@ -26,27 +26,10 @@
       <ContactTemplate :portfolio="portfolio" v-on:changeModal="showModal = false" />
     </transition>
 
-    <!-- Name -->
-    <h1>{{ portfolio.name }}</h1>
-
-    <!-- ******************************* -->
-    <!-- ******************************* -->
     <!-- Project container -->
     <div class="content" v-for="(project, id) in portfolio.projects" v-bind:key="id">
-      <PortfolioProjects :project="project" />
+      <PortfolioProjects :project="project" :portfolio="portfolio" />
     </div>
-
-    <!-- <div v-for="(image, index) in project.images" v-bind:key="index + 20">{{ image }}</div> -->
-    <!-- Project Name and link -->
-    <!-- <router-link
-        v-bind:to="{
-          name: 'project',
-          params: { portfolioId: portfolio.id, projectId: project.id },
-        }"
-      >{{ project.title }}</router-link>
-    </div>-->
-    <!-- ******************************* -->
-    <!-- ******************************* -->
   </div>
 </template>
 
@@ -108,9 +91,6 @@ export default {
   padding-left: 20px;
   padding-bottom: 10px;
   border-left: 5px solid;
-}
-.content {
-  height: 200px;
 }
 
 .modal-overlay {
