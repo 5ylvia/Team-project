@@ -45,31 +45,7 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-      showModal: false,
-      portfolio: {
-        projects: [],
-      },
-    };
-  },
-  methods: {
-    getPortfolio: function () {
-      const id = this.$route.params.portfolioId;
-      this.$http
-        .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
-        .then(function (data) {
-          this.portfolio = data.body.portfolio;
-          this.projects = data.body.portfolio.projects;
-        });
-    },
-  },
-  watch: {
-    $route: "getPortfolio",
-  },
-  created: function () {
-    this.getPortfolio();
-  },
+  props: ["portfolio"],
 };
 </script>
 

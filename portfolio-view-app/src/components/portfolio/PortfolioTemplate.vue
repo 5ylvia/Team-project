@@ -23,7 +23,7 @@
 
     <!-- Contact  -->
     <transition name="slide" appear v-if="showModal">
-      <ContactTemplate v-on:changeModal="showModal = false" />
+      <ContactTemplate :portfolio="portfolio" v-on:changeModal="showModal = false" />
     </transition>
 
     <!-- Name -->

@@ -1,7 +1,7 @@
 <template>
   <div>
     <button v-on:click="updateShowModal()" :style="{background: portfolio.color }">
-      <p>{{portfolio.name}}</p>
+      <p :style="portfolio">{{portfolio.name}}, Make Contact</p>
     </button>
   </div>
 </template>
@@ -20,8 +20,13 @@ export default {
 
 <style scoped>
 p {
-  writing-mode: vertical-rl;
-  text-orientation: sideways-right;
+  transform: rotate(270deg);
+  text-align: left;
+  width: 300px;
+  z-index: 5;
+  position: absolute;
+  right: -150px;
+  top: -160px;
 }
 
 button {
@@ -32,20 +37,21 @@ button {
   background: none;
 
   /* FEATURES */
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
+  border: 5px solid white;
   border-radius: 50px;
-  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 3px rgba(0, 0, 0, 0.4);
   transition: 0.4s ease-out;
 
   /* POSTIONING */
   z-index: 5;
   position: absolute;
-  right: 10px;
-  top: 47%;
+  right: 80px;
+  top: 45%;
 }
 
 button:hover {
-  box-shadow: 6px 6px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.6);
 }
 </style>
