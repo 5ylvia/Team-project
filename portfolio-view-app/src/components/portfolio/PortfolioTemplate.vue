@@ -14,7 +14,7 @@
     </section>
 
     <!-- Contact Button -->
-    <ContactButton v-on:changeModal="showModal = true" />
+    <ContactButton :portfolio="portfolio" v-on:changeModal="showModal = true" />
 
     <!-- Fade in -->
     <transition name="fade" appear>
