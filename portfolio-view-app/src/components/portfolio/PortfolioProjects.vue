@@ -6,7 +6,7 @@
         v-for="(image, index) in project.images"
         v-bind:key="index"
         class="image-box"
-        v-prlx="{speed: 0.3,reverse: true,direction: 'x',fromBottom: true}"
+        v-prlx="{speed: 1,reverse: true,direction: 'x',fromBottom: true}"
       >
         <router-link
           :to="{
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  props: ["project", "portfolio"],
+  props: ["project", "portfolio"]
 };
 </script>
 
