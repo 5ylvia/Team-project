@@ -7,12 +7,18 @@ import ProjectTemplate from "./components/project/ProjectTemplate.vue";
 import EditPortfolio from "./components/edit-portfolio/EditPortfolio.vue";
 
 import VueResource from "vue-resource";
-
-Vue.use(VueResource);
-
 import VueRouter from "vue-router";
 
+Vue.use(VueResource);
 Vue.use(VueRouter);
+
+//Parallax Plugin
+import VuePrlx from "vue-prlx";
+Vue.use(VuePrlx);
+
+// As a directive (local)
+import { VuePrlxDirective } from "vue-prlx";
+Vue.directive("prlx", VuePrlxDirective);
 
 const routes = [
   {

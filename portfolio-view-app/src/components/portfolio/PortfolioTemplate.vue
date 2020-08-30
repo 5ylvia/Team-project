@@ -14,7 +14,7 @@
     </section>
 
     <!-- Contact Button -->
-    <ContactButton v-on:changeModal="showModal = true" />
+    <ContactButton :portfolio="portfolio" v-on:changeModal="showModal = true" />
 
     <!-- Fade in -->
     <transition name="fade" appear>
@@ -23,41 +23,29 @@
 
     <!-- Contact  -->
     <transition name="slide" appear v-if="showModal">
-      <ContactTemplate v-on:changeModal="showModal = false" />
+      <ContactTemplate :portfolio="portfolio" v-on:changeModal="showModal = false" />
     </transition>
 
-    <!-- Name -->
-    <h1>{{ portfolio.name }}</h1>
-
-    <!-- ******************************* -->
-    <!-- ******************************* -->
     <!-- Project container -->
     <div class="content" v-for="(project, id) in portfolio.projects" v-bind:key="id">
-      <!-- generating all the images -->
-      <div v-for="(image, index) in project.images" v-bind:key="index + 20">{{ image }}</div>
-      <!-- Project Name and link -->
-      <router-link
-        v-bind:to="{
-          name: 'project',
-          params: { portfolioId: portfolio.id, projectId: project.id },
-        }"
-      >{{ project.title }}</router-link>
+      <PortfolioProjects :project="project" :portfolio="portfolio" />
     </div>
-    <!-- ******************************* -->
-    <!-- ******************************* -->
   </div>
 </template>
 
 <script>
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
+import PortfolioProjects from "./PortfolioProjects";
 
 export default {
   components: {
     ContactButton,
     ContactTemplate,
+    PortfolioProjects,
   },
   name: "PortfolioTemplate",
+  //test
   data: function () {
     return {
       showModal: false,
@@ -103,9 +91,6 @@ export default {
   padding-left: 20px;
   padding-bottom: 10px;
   border-left: 5px solid;
-}
-.content {
-  height: 200px;
 }
 
 .modal-overlay {
