@@ -27,8 +27,9 @@ const routes = [
   },
   {
     name: "project",
-    path: "/portfolio/:portfolioId/projects",
+    path: "/portfolio/:portfolioId/project/:projectId",
     component: ProjectTemplate,
+    props: true,
   },
   {
     name: "edit",

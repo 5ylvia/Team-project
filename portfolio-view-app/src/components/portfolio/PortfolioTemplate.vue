@@ -39,7 +39,7 @@
       <router-link
         v-bind:to="{
           name: 'project',
-          params: { portfolioId: portfolio.id, projectId: project.id },
+          params: { portfolioId: portfolio.id, project: project, projectId: project.id },
         }"
       >{{ project.title }}</router-link>
     </div>

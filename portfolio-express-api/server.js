@@ -247,17 +247,18 @@ app.get("/portfolio", (req, res) => {
 
 app.get("/portfolio/:id", (req, res) => {
   const id = req.params.id;
+  console.log(id);
   for (const portfolio of data) {
     if (portfolio.id === id) {
-      res.send({ portfolio: portfolio });
+      res.send({ portfolio: portfolio, projects: portfolio.projects });
     }
   }
 });
 
-app.get("/portfolio/:id/projects", (req, res) => {
-  const id = req.params.id;
-  console.log(id);
-  res.end();
+app.get("/portfolio/:id/project/:projectId", (req, res) => {
+  // const projectId = req.params;
+  // console.log(req.params.pro);
+  res.send(req.params);
 });
 
 app.listen(3000, () => {
