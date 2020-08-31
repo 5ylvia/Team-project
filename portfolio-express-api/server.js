@@ -109,11 +109,7 @@ const data = [
           "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
-        images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
-        ],
+        images: ["../assets/1.jpg", "../assets/2.jpg", "../assets/3.jpg"],
       },
       {
         id: 2,
@@ -123,11 +119,7 @@ const data = [
           "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
-        images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
-        ],
+        images: ["1.jpg", "2.jpg", "3.jpg"],
       },
       {
         id: 3,
@@ -250,15 +242,29 @@ app.get("/portfolio/:id", (req, res) => {
   console.log(id);
   for (const portfolio of data) {
     if (portfolio.id === id) {
-      res.send({ portfolio: portfolio, projects: portfolio.projects });
+      res.send({ portfolio: portfolio });
+    }
+  }
+});
+app.get("/portfolio/:id/projects", (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  for (const portfolio of data) {
+    if (portfolio.id === id) {
+      res.send({ projects: portfolio.projects });
     }
   }
 });
 
-app.get("/portfolio/:id/project/:projectId", (req, res) => {
-  // const projectId = req.params;
-  // console.log(req.params.pro);
-  res.send(req.params);
+app.get("/portfolio/:id/projects/:projectId", (req, res) => {
+  const projectId = req.params.projectId;
+  console.log(projectId);
+  // for (const portfolio of data) {
+  //   if (portfolio.projects.id === id) {
+  //     res.send({ project: project });
+  //   }
+  // }
+  res.send();
 });
 
 app.listen(3000, () => {
