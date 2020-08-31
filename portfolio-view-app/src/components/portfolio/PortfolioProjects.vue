@@ -6,7 +6,9 @@
         v-for="(image, index) in project.images"
         v-bind:key="index"
         class="image-box"
+
         v-prlx="{speed: 1.2,reverse: true,direction: 'x',fromBottom: true}"
+
       >
         <router-link
           :to="{
@@ -31,6 +33,7 @@ export default {
 <style scoped>
 .container {
   width: 100%;
+
   position: relative;
   margin-bottom: 100px;
 }
@@ -51,6 +54,7 @@ export default {
   display: flex;
   justify-content: flex-end;
   transform: translateX(550px);
+
   cursor: pointer;
 }
 

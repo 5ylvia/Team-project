@@ -28,8 +28,10 @@
 
     <!-- Project container -->
     <div class="content" v-for="(project, id) in portfolio.projects" v-bind:key="id">
+
       <PortfolioProjects v-if="id % 2 == 0" :project="project" :portfolio="portfolio" />
       <PortfolioProjectsOdds v-else :project="project" :portfolio="portfolio" />
+
     </div>
   </div>
 </template>
@@ -38,18 +40,22 @@
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
 import PortfolioProjects from "./PortfolioProjects";
+
 import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
+
 
 export default {
   components: {
     ContactButton,
     ContactTemplate,
     PortfolioProjects,
+
     PortfolioProjectsOdds
   },
   name: "PortfolioTemplate",
   //test
   data: function() {
+
     return {
       showModal: false,
       portfolio: {
