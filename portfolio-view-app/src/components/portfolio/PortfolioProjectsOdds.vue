@@ -13,10 +13,7 @@
             name: 'project',
           params: { portfolioId: portfolio.id, projectId: project.id },
           }"
-        >
-          <p>{{ image }}</p>
-          <img src alt />
-        </router-link>
+        ></router-link>
       </div>
     </div>
   </div>
