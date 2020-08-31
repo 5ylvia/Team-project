@@ -6,7 +6,7 @@
         v-for="(image, index) in project.images"
         v-bind:key="index"
         class="image-box"
-        v-prlx="{ speed: 1, reverse: true, direction: 'x', fromBottom: true }"
+        v-prlx="{ speed: 1.2, reverse: true, direction: 'x', fromBottom: true }"
       >
         <p>{{ image }}</p>
         <img :src="image" alt />
@@ -21,8 +21,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .container {
+  width: 100%;
+
   position: relative;
   margin-bottom: 100px;
 }
@@ -32,7 +34,7 @@ export default {
   position: absolute;
   right: 10px;
   bottom: -27px;
-  text-align: right;
+  text-align: left;
   font-size: 100px;
   font-family: "Sail", cursive;
   text-transform: lowercase;
@@ -42,13 +44,14 @@ export default {
 .image-container {
   display: flex;
   justify-content: flex-end;
-  transform: translateX(250px);
+  transform: translateX(550px);
+
   cursor: pointer;
 }
 
 .image-box {
-  background: coral;
-  height: 300px;
+  background: #bdbdbd;
+  height: 400px;
   width: 750px;
   margin-right: 50px;
 }

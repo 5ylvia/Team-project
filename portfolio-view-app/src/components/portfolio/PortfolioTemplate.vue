@@ -39,18 +39,12 @@
       v-for="(project, id) in portfolio.projects"
       v-bind:key="id"
     >
-      <router-link
-        :to="{
-          name: 'project',
-          params: {
-            portfolioId: portfolio.id,
-            projectId: project.id,
-            project: project,
-          },
-        }"
-      >
-        <PortfolioProjects :project="project" :portfolio="portfolio" />
-      </router-link>
+      <PortfolioProjects
+        v-if="id % 2 == 0"
+        :project="project"
+        :portfolio="portfolio"
+      />
+      <PortfolioProjectsOdds v-else :project="project" :portfolio="portfolio" />
     </div>
   </div>
 </template>
@@ -60,11 +54,15 @@ import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
 import PortfolioProjects from "./PortfolioProjects";
 
+import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
+
 export default {
   components: {
     ContactButton,
     ContactTemplate,
     PortfolioProjects,
+
+    PortfolioProjectsOdds,
   },
   name: "PortfolioTemplate",
   //test
