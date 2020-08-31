@@ -14,51 +14,61 @@
     </section>
 
     <!-- Contact Button -->
-    <ContactButton v-on:changeModal="showModal = true" />
+    <ContactButton :portfolio="portfolio" v-on:changeModal="showModal = true" />
 
     <!-- Fade in -->
     <transition name="fade" appear>
-      <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
+      <div
+        class="modal-overlay"
+        v-if="showModal"
+        @click="showModal = false"
+      ></div>
     </transition>
 
     <!-- Contact  -->
     <transition name="slide" appear v-if="showModal">
-      <ContactTemplate v-on:changeModal="showModal = false" />
+      <ContactTemplate
+        :portfolio="portfolio"
+        v-on:changeModal="showModal = false"
+      />
     </transition>
 
-    <!-- Name -->
-    <h1>{{ portfolio.name }}</h1>
-
-    <!-- ******************************* -->
-    <!-- ******************************* -->
     <!-- Project container -->
-    <div class="content" v-for="(project, id) in portfolio.projects" v-bind:key="id">
-      <!-- generating all the images -->
-      <div v-for="(image, index) in project.images" v-bind:key="index + 20">{{ image }}</div>
-      <!-- Project Name and link -->
+    <div
+      class="content"
+      v-for="(project, id) in portfolio.projects"
+      v-bind:key="id"
+    >
       <router-link
-        v-bind:to="{
+        :to="{
           name: 'project',
-          params: { portfolioId: portfolio.id, project: project, projectId: project.id },
+          params: {
+            portfolioId: portfolio.id,
+            projectId: project.id,
+            project: project,
+          },
         }"
-      >{{ project.title }}</router-link>
+      >
+        <PortfolioProjects :project="project" :portfolio="portfolio" />
+      </router-link>
     </div>
-    <!-- ******************************* -->
-    <!-- ******************************* -->
   </div>
 </template>
 
 <script>
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
+import PortfolioProjects from "./PortfolioProjects";
 
 export default {
   components: {
     ContactButton,
     ContactTemplate,
+    PortfolioProjects,
   },
   name: "PortfolioTemplate",
-  data: function () {
+  //test
+  data: function() {
     return {
       showModal: false,
       portfolio: {
@@ -68,11 +78,11 @@ export default {
     };
   },
   methods: {
-    currentPortfolio: function () {
+    currentPortfolio: function() {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
-        .then(function (data) {
+        .then(function(data) {
           this.portfolio = data.body.portfolio;
           this.projects = data.body.portfolio.projects;
           this.sources = data.body.portfolio.sources;
@@ -82,13 +92,13 @@ export default {
   watch: {
     $route: "currentPortfolio",
   },
-  created: function () {
+  created: function() {
     this.currentPortfolio();
   },
 };
 </script>
 
-<style >
+<style>
 .skil-container {
   width: 675px;
   margin: 200px 80px 80px 80px;
@@ -103,9 +113,6 @@ export default {
   padding-left: 20px;
   padding-bottom: 10px;
   border-left: 5px solid;
-}
-.content {
-  height: 200px;
 }
 
 .modal-overlay {
