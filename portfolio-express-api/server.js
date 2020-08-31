@@ -34,7 +34,7 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
           "/portfolio-view-app/src/assets/2.jpg",
           "/portfolio-view-app/src/assets/3.jpg",
         ],

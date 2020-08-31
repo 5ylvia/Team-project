@@ -28,7 +28,10 @@
 
     <!-- Project container -->
     <div class="content" v-for="(project, id) in portfolio.projects" v-bind:key="id">
-      <PortfolioProjects :project="project" :portfolio="portfolio" />
+
+      <PortfolioProjects v-if="id % 2 == 0" :project="project" :portfolio="portfolio" />
+      <PortfolioProjectsOdds v-else :project="project" :portfolio="portfolio" />
+
     </div>
   </div>
 </template>
@@ -38,41 +41,47 @@ import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
 import PortfolioProjects from "./PortfolioProjects";
 
+import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
+
+
 export default {
   components: {
     ContactButton,
     ContactTemplate,
     PortfolioProjects,
+
+    PortfolioProjectsOdds
   },
   name: "PortfolioTemplate",
   //test
-  data: function () {
+  data: function() {
+
     return {
       showModal: false,
       portfolio: {
         projects: [],
-        sources: [],
-      },
+        sources: []
+      }
     };
   },
   methods: {
-    currentPortfolio: function () {
+    currentPortfolio: function() {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
-        .then(function (data) {
+        .then(function(data) {
           this.portfolio = data.body.portfolio;
           this.projects = data.body.portfolio.projects;
           this.sources = data.body.portfolio.sources;
         });
-    },
+    }
   },
   watch: {
-    $route: "currentPortfolio",
+    $route: "currentPortfolio"
   },
-  created: function () {
+  created: function() {
     this.currentPortfolio();
-  },
+  }
 };
 </script>
 
