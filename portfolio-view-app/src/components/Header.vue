@@ -12,9 +12,9 @@
       <router-link
         v-bind:to="{
           name: 'portfolio',
-          params: { portfolioId: portfolio.id },
+          params: { portfolioId: portfolio._id },
         }"
-      >{{ portfolio.id }}</router-link>
+      >{{ portfolio.name }}</router-link>
     </li>
   </header>
 </template>
@@ -31,15 +31,18 @@ export default {
   methods: {
     getPortfolios: function () {
       this.$http
-        .get(`${process.env.VUE_APP_API_URL}/portfolio`)
+        .get(`${process.env.VUE_APP_API_URL}/portfolios`)
         .then(function (data) {
-          this.portfolios = data.body.portfolios;
+          this.portfolios = data.body;
         });
     },
   },
   created: function () {
     this.getPortfolios();
   },
+  // mounted: function() {
+  //   this.getPortfolios();
+  // }
 };
 </script>
 

@@ -61,7 +61,6 @@ export default {
     ContactButton,
     ContactTemplate,
     PortfolioProjects,
-
     PortfolioProjectsOdds,
   },
   name: "PortfolioTemplate",
@@ -71,7 +70,6 @@ export default {
       showModal: false,
       portfolio: {
         projects: [],
-        sources: [],
       },
     };
   },
@@ -79,13 +77,19 @@ export default {
     currentPortfolio: function() {
       const id = this.$route.params.portfolioId;
       this.$http
-        .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
+        .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}`)
         .then(function(data) {
-          this.portfolio = data.body.portfolio;
-          this.projects = data.body.portfolio.projects;
-          this.sources = data.body.portfolio.sources;
+          this.portfolio = data.body;
         });
     },
+    getProjects: function() {
+      const id = this.$route.params.portfolioId;
+      this.$http
+        .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}/projects`)
+        .then(function(data) {
+          this.projects = data.body;
+        });
+    }
   },
   watch: {
     $route: "currentPortfolio",
