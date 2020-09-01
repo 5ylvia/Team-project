@@ -275,30 +275,30 @@ app.get("/", (req, res) => {
   res.send("Hello");
 });
 
-// const projects = require("./routes/projects.js");
-// const portfolios = require("./routes/portfolios.js");
-// app.use("/projects", projects);
-// app.use("/portfolios", portfolios);
+const projects = require("./routes/projects.js");
+const portfolios = require("./routes/portfolios.js");
+app.use("/projects", projects);
+app.use("/portfolios", portfolios);
 
-// // Errors
+// Errors
 
-// app.use((req, res, next) => {
-//   const error = new Error("Endpoint Not Found");
-//   error.status = 404;
-//   next(error);
-// });
+app.use((req, res, next) => {
+  const error = new Error("Endpoint Not Found");
+  error.status = 404;
+  next(error);
+});
 
-// app.use((err, req, res, next) => {
-//   if (!isProduction) {
-//     console.log(err.stack);
-//   }
+app.use((err, req, res, next) => {
+  if (!isProduction) {
+    console.log(err.stack);
+  }
 
-//   res.status(err.status || 500);
+  res.status(err.status || 500);
 
-//   res.json({
-//     errors: {
-//       message: err.message,
-//       error: err,
-//     },
-//   });
-// });
+  res.json({
+    errors: {
+      message: err.message,
+      error: err,
+    },
+  });
+});

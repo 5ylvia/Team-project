@@ -1,38 +1,28 @@
-// const router = require("express").Router();
-// const Project = require("../models/Project.js");
+const router = require("express").Router();
+const Project = require("../models/Project.js");
 
-// router.get("/", (req, res) => {
-//   res.send({ portfolios: data });
-// });
+router.param("id", (req, res, next, id) => {
+    Project.findById(id)
+    .populate("author")
+      .then((project) => {
+        if (!project) {
+          res.status(404).send("Project not found");
+        } else {
+          req.project = project;
+          return next();
+        }
+      })
+      .catch(next);
+  });
+  
+  router.get("/", (req, res, next) => {
+    Project.find({})
+      .sort({ createdAt: "desc" })
+      .then((results) => {
+        return res.send(results);
+      })
+      .catch(next);
+  });
+  
 
-// router.get("/:id", (req, res) => {
-//   const id = req.params.id;
-//   console.log(id);
-//   for (const portfolio of data) {
-//     if (portfolio.id === id) {
-//       res.send({ portfolio: portfolio });
-//     }
-//   }
-// });
-// router.get("/:id", (req, res) => {
-//   const id = req.params.id;
-//   console.log(id);
-//   for (const portfolio of data) {
-//     if (portfolio.id === id) {
-//       res.send({ projects: portfolio.projects });
-//     }
-//   }
-// });
-
-// router.get("/:projectId", (req, res) => {
-//   const projectId = req.params.projectId;
-//   console.log(projectId);
-//   // for (const portfolio of data) {
-//   //   if (portfolio.projects.id === id) {
-//   //     res.send({ project: project });
-//   //   }
-//   // }
-//   res.send();
-// });
-
-// module.exports = router;
+module.exports = router;
