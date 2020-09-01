@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Portfolio = require("../models/Portfolio.js");
+const Project = require("../models/Project.js");
 const { request } = require("express");
 
 //id convert
@@ -58,5 +59,37 @@ router.delete("/:id", (req, res, next) => {
     res.status(204).send(portfolio);
   });
 });
+
+//PROJECTS ---------------------------------------
+
+//Portfolio's projects
+router.get("/:id/projects", (req, res, next) => {
+  Project.find({ projects: req.portfolio.id })
+    .sort({ createdAt: "desc" })
+    .then((projects) => {
+      return res.status(200).send(projects);
+    })
+    .catch(next);
+});
+
+// router.post("/:id/articles", (req, res, next) => {
+//   const article = new Article(req.body);
+//   article.author = req.user.id;
+//   article
+//     .save()
+//     .then((article) => {
+//       if (!req.user.articles) {
+//         req.user.articles = [];
+//       }
+//       req.user.articles.push(article);
+//       req.user
+//         .save()
+//         .then((article) => {
+//           res.status(201).send({ user: user, article: article });
+//         })
+//         .catch(next);
+//     })
+//     .catch(next);
+// });
 
 module.exports = router;

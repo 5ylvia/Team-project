@@ -45,20 +45,8 @@ app.get("/", (req, res) => {
 const portfolios = require("./routes/portfolios.js");
 app.use("/portfolios", portfolios);
 
-// app.get("/portfolio/:id", (req, res) => {
-//   const id = req.params.id;
-//   for (const portfolio of data) {
-//     if (portfolio.id === id) {
-//       res.send({ portfolio: portfolio });
-//     }
-//   }
-// });
-
-// app.get("/portfolio/:id/projects", (req, res) => {
-//   const id = req.params.id;
-//   console.log(id);
-//   res.end();
-// });
+const projects = require("./routes/projects");
+app.use("/projects", projects);
 
 //ERRORS------------------------------------
 app.use((req, res, next) => {
