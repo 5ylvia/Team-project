@@ -3,6 +3,8 @@ const PortfolioSchema = new mongoose.Schema(
   {
     author: String,
     name: { type: String, required: true },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
     sources: { type: Object, required: true },
     description: String,
     color: String,
