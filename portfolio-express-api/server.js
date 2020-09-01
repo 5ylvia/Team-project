@@ -1,10 +1,39 @@
 const express = require("express");
 
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const morgan = require("morgan");
+
+dotenv.config();
+const isProduction = false;
+
 const app = express();
+
 const cors = require("cors");
 
 app.use(cors());
+
 app.use(express.json());
+
+mongoose.connect(
+  "mongodb+srv://sylvia:YOOBEE@cluster0.syz6k.mongodb.net/team-portfolio?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  }
+);
+// .catch((err) => {
+//   console.log(err);
+// });
+
+mongoose.connection.on("open", function (ref) {
+  console.log("MongoDB connected");
+
+  app.listen(3000, () => {
+    console.log("Listening on port 3000...");
+  });
+});
 
 const data = [
   {
@@ -35,8 +64,8 @@ const data = [
         ],
         images: [
           "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
       {
@@ -48,9 +77,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
       {
@@ -62,9 +91,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
       {
@@ -76,9 +105,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
     ],
@@ -109,7 +138,11 @@ const data = [
           "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
-        images: ["../assets/1.jpg", "../assets/2.jpg", "../assets/3.jpg"],
+        images: [
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+        ],
       },
       {
         id: 2,
@@ -119,7 +152,11 @@ const data = [
           "2-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
-        images: ["1.jpg", "2.jpg", "3.jpg"],
+        images: [
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+        ],
       },
       {
         id: 3,
@@ -130,9 +167,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
       {
@@ -144,9 +181,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
     ],
@@ -178,9 +215,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
       {
@@ -192,9 +229,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
       {
@@ -206,9 +243,9 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
       {
@@ -220,53 +257,48 @@ const data = [
           "3-Coinbase was created as a reliable, trusted, and safe bridge for people to buy and sell cryptocurrency, and we remain committed to providing the best crypto investing experience for our customers.",
         ],
         images: [
-          "/portfolio-view-app/src/assets/1.jpg",
-          "/portfolio-view-app/src/assets/2.jpg",
-          "/portfolio-view-app/src/assets/3.jpg",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
+          "https://images.unsplash.com/photo-1593642632505-1f965e8426e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80",
         ],
       },
     ],
   },
 ];
 
+// Routing
+
+app.use(morgan("dev"));
+
 app.get("/", (req, res) => {
-  res.send({ portfolios: data });
+  console.log(`${req.method} request received...`);
+  res.send("Hello");
 });
 
-app.get("/portfolio", (req, res) => {
-  res.send({ portfolios: data });
-});
+// const projects = require("./routes/projects.js");
+// const portfolios = require("./routes/portfolios.js");
+// app.use("/projects", projects);
+// app.use("/portfolios", portfolios);
 
-app.get("/portfolio/:id", (req, res) => {
-  const id = req.params.id;
-  console.log(id);
-  for (const portfolio of data) {
-    if (portfolio.id === id) {
-      res.send({ portfolio: portfolio });
-    }
-  }
-});
-app.get("/portfolio/:id/projects", (req, res) => {
-  const id = req.params.id;
-  console.log(id);
-  for (const portfolio of data) {
-    if (portfolio.id === id) {
-      res.send({ projects: portfolio.projects });
-    }
-  }
-});
+// // Errors
 
-app.get("/portfolio/:id/projects/:projectId", (req, res) => {
-  const projectId = req.params.projectId;
-  console.log(projectId);
-  // for (const portfolio of data) {
-  //   if (portfolio.projects.id === id) {
-  //     res.send({ project: project });
-  //   }
-  // }
-  res.send();
-});
+// app.use((req, res, next) => {
+//   const error = new Error("Endpoint Not Found");
+//   error.status = 404;
+//   next(error);
+// });
 
-app.listen(3000, () => {
-  console.log("Server on!");
-});
+// app.use((err, req, res, next) => {
+//   if (!isProduction) {
+//     console.log(err.stack);
+//   }
+
+//   res.status(err.status || 500);
+
+//   res.json({
+//     errors: {
+//       message: err.message,
+//       error: err,
+//     },
+//   });
+// });
