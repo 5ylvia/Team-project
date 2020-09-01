@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const PortfolioSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: String,
   description: String,
-  color: { type: String, required: true },
+  color: String,
 });
 
 module.exports = mongoose.model("Portfolio", PortfolioSchema);

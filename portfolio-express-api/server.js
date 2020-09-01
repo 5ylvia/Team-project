@@ -60,24 +60,24 @@ app.use("/portfolios", portfolios);
 //   res.end();
 // });
 
-//ERRORS ------------------------------------
-// app.use((req, res, next) => {
-//   const error = new Error("Errors are happening, try again...");
-//   error.status = 404;
-//   next(error);
-// });
+//ERRORS------------------------------------;
+app.use((req, res, next) => {
+  const error = new Error("Errors are happening, try again...");
+  error.status = 404;
+  next(error);
+});
 
-// app.use((err, req, res, next) => {
-//   if (!isProduction) {
-//     console.log(err.stack);
-//   }
+app.use((err, req, res, next) => {
+  if (!isProduction) {
+    console.log(err.stack);
+  }
 
-//   res.status(err.status || 500);
+  res.status(err.status || 500);
 
-//   res.json({
-//     errors: {
-//       message: err.message,
-//       error: err,
-//     },
-//   });
-// });
+  res.json({
+    errors: {
+      message: err.message,
+      error: err,
+    },
+  });
+});
