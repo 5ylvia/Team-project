@@ -3,15 +3,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-dotenv.config();
+const cors = require("cors");
 
 //New Instance
 const app = express();
 const isProduction = process.env.MODE_ENV === "production";
 
-const cors = require("cors");
 app.use(cors());
 app.use(express.json());
+dotenv.config();
 
 //Mongoose errors go away
 mongoose.connect(process.env.MONGODB_URI, {
@@ -60,7 +60,7 @@ app.use("/portfolios", portfolios);
 //   res.end();
 // });
 
-//ERRORS------------------------------------;
+//ERRORS------------------------------------
 app.use((req, res, next) => {
   const error = new Error("Errors are happening, try again...");
   error.status = 404;
