@@ -24,14 +24,16 @@
           }"
         ></div>
       </router-link>
+
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["project", "portfolio"],
-};
+
+  props: ["project", "portfolio"]
+
 </script>
 
 <style scoped>
@@ -66,4 +68,5 @@ export default {
   width: 75%;
   margin-right: 50px;
 }
+
 </style>

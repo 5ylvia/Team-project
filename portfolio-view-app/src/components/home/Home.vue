@@ -18,23 +18,23 @@
 <script>
 export default {
   name: "Home",
-  data: function () {
+  data: function() {
     return {
-      portfolios: [],
+      portfolios: []
     };
   },
   methods: {
-    getPortfolios: function () {
+    getPortfolios: function() {
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios`)
         .then(function (data) {
           this.portfolios = data.body;
         });
-    },
+    }
   },
-  created: function () {
+  created: function() {
     this.getPortfolios();
-  },
+  }
 };
 </script>
 

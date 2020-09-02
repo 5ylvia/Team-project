@@ -34,6 +34,7 @@
     </transition>
 
     <!-- Project container -->
+
     <div
       class="content"
       v-for="(project, id) in portfolio.projects"
@@ -44,6 +45,7 @@
         :project="project"
         :portfolio="portfolio"
       />
+
       <PortfolioProjectsOdds v-else :project="project" :portfolio="portfolio" />
     </div>
   </div>
@@ -61,7 +63,9 @@ export default {
     ContactButton,
     ContactTemplate,
     PortfolioProjects,
-    PortfolioProjectsOdds,
+
+    PortfolioProjectsOdds
+
   },
   name: "PortfolioTemplate",
   //test
@@ -71,6 +75,7 @@ export default {
       portfolio: {
         projects: [],
       },
+
     };
   },
   methods: {
@@ -92,11 +97,11 @@ export default {
     }
   },
   watch: {
-    $route: "currentPortfolio",
+    $route: "currentPortfolio"
   },
   created: function() {
     this.currentPortfolio();
-  },
+  }
 };
 </script>
 

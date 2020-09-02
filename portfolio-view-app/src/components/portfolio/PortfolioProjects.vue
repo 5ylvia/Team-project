@@ -7,7 +7,7 @@
         v-bind:key="index"
         class="image-box"
         v-prlx="{ speed: 1.2, reverse: true, direction: 'x', fromBottom: true }"
-      >
+
         <p>{{ image }}</p>
         <img :src="image" alt />
       </div>
@@ -56,3 +56,4 @@ export default {
   margin-right: 50px;
 }
 </style>
+

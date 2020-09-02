@@ -6,14 +6,16 @@ router.param("id", (req, res, next, id) => {
   Portfolio.findById(id)
     .then((portfolio) => {
       if (!portfolio) {
-        res.status(404).send("Portfolio not found");
+        res.status(404).send("portfolio not found");
       } else {
         req.portfolio = portfolio;
-        return next();
+        next();
+
       }
     })
     .catch(next);
 });
+
 
 router.get("/", (req, res, next) => {
   Portfolio.find({})
@@ -24,11 +26,43 @@ router.get("/", (req, res, next) => {
     .catch(next);
 });
 
-router.get("/:id", (req, res) => {
-  return res.status(200).send(req.portfolio);
+//Post request
+router.post("/", (req, res) => {
+  const portfolio = new Portfolio(req.body);
+  console.log(portfolio);
+  portfolio.save().then((result) => {
+    return res.status(201).send(result);
+  });
 });
 
-// Author's project
+//get portfolio by id
+router.get("/:id", (req, res, next) => {
+  const id = req.params.id;
+  console.log(`get request for user ${id} recived...`);
+  res.status(200).send(req.portfolio);
+});
+
+//update portfolio info
+router.put("/:id", (req, res, next) => {
+  const id = req.params.id;
+  console.log(`Update request for portfolio ${id} received...`);
+  Portfolio.findByIdAndUpdate(req.portfolio.id, req.body).then((portfolio) => {
+    res.send(portfolio);
+  });
+});
+
+//delete portfolio
+router.delete("/:id", (req, res, next) => {
+  const id = req.params.id;
+  Portfolio.findByIdAndDelete(req.portfolio.id).then((portfolio) => {
+    res.status(204).send(portfolio);
+  });
+});
+
+//PROJECTS ---------------------------------------
+
+//Portfolio's projects
+
 router.get("/:id/projects", (req, res, next) => {
   Project.find({ author: req.portfolio.id })
   .sort({ createdAt: "desc" })
