@@ -14,7 +14,8 @@
           name: 'portfolio',
           params: { portfolioId: portfolio._id },
         }"
-      >{{ portfolio.firstName }}</router-link>
+        >{{ portfolio.firstName }}</router-link
+      >
     </li>
   </header>
 </template>
@@ -22,23 +23,23 @@
 <script>
 export default {
   name: "Header",
-  data: function () {
+  data: function() {
     return {
       portfolios: [],
     };
   },
 
   methods: {
-    getPortfolios: function () {
+    getPortfolios: function() {
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios`)
 
-        .then(function (data) {
+        .then(function(data) {
           this.portfolios = data.body;
         });
     },
   },
-  created: function () {
+  created: function() {
     this.getPortfolios();
   },
 };
