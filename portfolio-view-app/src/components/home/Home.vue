@@ -8,7 +8,7 @@
             params: { portfolioId: portfolio._id },
           }"
         >
-          <h1 class="nameBox__name">{{ portfolio.name }}</h1>
+          <h1 class="nameBox__name">{{ portfolio.firstName }}</h1>
         </router-link>
       </div>
     </div>
@@ -18,23 +18,23 @@
 <script>
 export default {
   name: "Home",
-  data: function() {
+  data: function () {
     return {
-      portfolios: []
+      portfolios: [],
     };
   },
   methods: {
-    getPortfolios: function() {
+    getPortfolios: function () {
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios`)
         .then(function (data) {
           this.portfolios = data.body;
         });
-    }
+    },
   },
-  created: function() {
+  created: function () {
     this.getPortfolios();
-  }
+  },
 };
 </script>
 
