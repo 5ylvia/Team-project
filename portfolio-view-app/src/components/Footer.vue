@@ -12,6 +12,9 @@ export default {
 
 <style scoped>
 div {
-  height: 100px;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
 }
 </style>

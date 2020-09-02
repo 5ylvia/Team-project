@@ -7,7 +7,7 @@ const cors = require("cors");
 
 //New Instance
 const app = express();
-const isProduction = process.env.MODE_ENV === "production";
+const isProduction = false;
 
 app.use(cors());
 
@@ -27,7 +27,6 @@ mongoose.connect(
 //   console.log(err);
 // });
 
-
 mongoose.connection.on("open", function (ref) {
   console.log("MongoDB connected");
 
@@ -35,7 +34,6 @@ mongoose.connection.on("open", function (ref) {
     console.log("Listening on port 3000...");
   });
 });
-
 
 //ROUTING ------------------------------------
 app.use(morgan("dev"));

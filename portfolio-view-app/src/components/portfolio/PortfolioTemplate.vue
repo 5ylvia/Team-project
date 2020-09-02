@@ -56,7 +56,8 @@ export default {
     return {
       showModal: false,
       portfolio: {
-        projects: [],
+        projects: Array,
+        sources: Object,
       },
     };
   },
