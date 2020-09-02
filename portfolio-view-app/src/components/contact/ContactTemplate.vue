@@ -2,9 +2,7 @@
   <div class="modal">
     <div class="modal__profile padding-box">
       <div>
-        <h1 class="modal__profile--title" :style="portfolio">
-          {{ portfolio.name }}
-        </h1>
+        <h1 class="modal__profile--title" :style="portfolio">{{ portfolio.name }}</h1>
         <h4 class="modal__profile--personal-site">
           Personal site
           <i :style="portfolio" class="fas fa-external-link-alt"></i>
@@ -19,13 +17,7 @@
     <div class="modal__skills padding-box">
       <h3 class="modal--title">SKILLS</h3>
       <ul class="modal__skills--ul">
-        <li
-          class="modal__skills--list"
-          v-for="skill in portfolio.skills"
-          :key="skill"
-        >
-          {{ skill }}
-        </li>
+        <li class="modal__skills--list" v-for="skill in portfolio.skills" :key="skill">{{ skill }}</li>
       </ul>
     </div>
     <div class="modal__contact padding-box">
@@ -40,9 +32,7 @@
           class="modal__contact--list"
           v-for="contact in portfolio.contact"
           :key="contact"
-        >
-          {{ contact }}
-        </li>
+        >{{ contact }}</li>
       </ul>
     </div>
     <div class="modal_color" :style="{ background: portfolio.color }">
@@ -142,5 +132,35 @@ button {
 
   width: 100%;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1100px) {
+  .modal {
+    width: 90%;
+    height: 500px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr 50px;
+  }
+  .padding-box {
+    padding: 10px;
+  }
+  .modal__profile {
+    grid-column: 1 / 7;
+    padding: 10px;
+  }
+  .modal__skills {
+    grid-row: 2;
+    grid-column: 1/3;
+  }
+  .modal__contact {
+    grid-row: 2;
+    grid-column: 3 / 6;
+  }
+  .modal_color {
+    grid-column: 1 / 6;
+    grid-row: 3;
+  }
 }
 </style>

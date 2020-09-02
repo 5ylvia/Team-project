@@ -15,7 +15,6 @@
         <div
           v-for="(image, index) in project.images"
           v-bind:key="index"
-          class="image-box"
           v-prlx="{ speed: 1.2, reverse: true, direction: 'x', fromBottom: true }"
         >
           <img :src="image" alt />
@@ -34,7 +33,6 @@ export default {
 <style scoped>
 .container {
   width: 100%;
-
   position: relative;
   margin-bottom: 100px;
 }
@@ -42,31 +40,46 @@ export default {
 .project-title {
   z-index: 5;
   position: absolute;
-  right: 10px;
-  bottom: -27px;
-  text-align: left;
+  right: 85px;
+  text-align: right;
   font-size: 10rem;
   font-family: "Sail", cursive;
   text-transform: lowercase;
   color: white;
+
+  /* new */
+  width: 50%;
+  max-width: 800px;
+  bottom: 10px;
+  line-height: 0.5;
 }
 
 .image-container {
   display: flex;
   justify-content: flex-end;
-  transform: translateX(550px);
-
+  transform: translateX(50%);
   cursor: pointer;
 }
 
-.image-box {
-  height: 400px;
-  width: 750px;
-  margin-right: 50px;
-}
 img {
   height: 400px;
   margin-right: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .image-container {
+    transform: translateX(100%);
+  }
+}
+@media screen and (max-width: 800px) {
+  .image-container {
+    transform: translateX(200%);
+  }
+}
+@media screen and (max-width: 600px) {
+  .image-container {
+    transform: translateX(300%);
+  }
 }
 </style>
 

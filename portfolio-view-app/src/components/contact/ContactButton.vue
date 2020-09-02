@@ -54,4 +54,10 @@ button {
 button:hover {
   box-shadow: 0px 4px rgba(0, 0, 0, 0.6);
 }
+
+@media screen and (max-width: 1000px) {
+  p {
+    display: none;
+  }
+}
 </style>
