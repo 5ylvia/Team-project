@@ -7,7 +7,7 @@ const cors = require("cors");
 
 //New Instance
 const app = express();
-const isProduction = process.env.MODE_ENV === "production";
+const isProduction = false;
 
 app.use(cors());
 

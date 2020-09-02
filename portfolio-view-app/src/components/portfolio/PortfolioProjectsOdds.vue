@@ -1,13 +1,12 @@
 <template>
   <router-link
     :to="{
-          name: 'project',
-          params: {
-            portfolioId: portfolio.id,
-            projectId: project.id,
-            project: project,
-          },
-        }"
+      name: 'project',
+      params: {
+        portfolioId: portfolio._id,
+        projectId: project._id,
+      },
+    }"
   >
     <div class="odds-container">
       <h1 class="odds-project-title">{{ project.title }}</h1>
@@ -15,12 +14,13 @@
         <div
           v-for="(image, index) in project.images"
           v-bind:key="index"
+          class="odds-image-box"
           v-prlx="{
-              speed: 1.2,
-              reverse: false,
-              direction: 'x',
-              fromBottom: true,
-            }"
+            speed: 1.2,
+            reverse: false,
+            direction: 'x',
+            fromBottom: true,
+          }"
         >
           <img :src="image" alt />
         </div>
@@ -39,7 +39,7 @@ export default {
 .odds-container {
   width: 100%;
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 
 .odds-project-title {

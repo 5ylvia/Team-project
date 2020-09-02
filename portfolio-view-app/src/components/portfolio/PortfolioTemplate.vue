@@ -40,7 +40,6 @@
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
 import PortfolioProjects from "./PortfolioProjects";
-
 import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
 
 export default {
@@ -57,7 +56,8 @@ export default {
     return {
       showModal: false,
       portfolio: {
-        projects: [],
+        projects: Array,
+        sources: Object,
       },
     };
   },
