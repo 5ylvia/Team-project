@@ -37,11 +37,11 @@
 
     <div
       class="content"
-      v-for="(project, id) in portfolio.projects"
-      v-bind:key="id"
+      v-for="(project, index) in portfolio.projects"
+      v-bind:key="index"
     >
       <PortfolioProjects
-        v-if="id % 2 == 0"
+        v-if="index % 2 == 0"
         :project="project"
         :portfolio="portfolio"
       />
@@ -86,18 +86,20 @@ export default {
         .then(function(data) {
           this.portfolio = data.body;
         });
+      this.getProjects();
+
     },
     getProjects: function() {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}/projects`)
         .then(function(data) {
-          this.projects = data.body;
+          this.portfolio.projects = data.body;
         });
     }
   },
   watch: {
-    $route: "currentPortfolio"
+    $route: "currentPortfolio",
   },
   created: function() {
     this.currentPortfolio();
