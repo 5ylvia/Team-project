@@ -1,13 +1,13 @@
 <template>
   <router-link
     :to="{
-      name: 'project',
-      params: {
-        portfolioId: portfolio.id,
-        projectId: project.id,
-        project: project,
-      },
-    }"
+          name: 'project',
+          params: {
+            portfolioId: portfolio.id,
+            projectId: project.id,
+            project: project,
+          },
+        }"
   >
     <div class="container">
       <h1 class="project-title">{{ project.title }}</h1>
@@ -16,12 +16,7 @@
           v-for="(image, index) in project.images"
           v-bind:key="index"
           class="image-box"
-          v-prlx="{
-            speed: 1.2,
-            reverse: true,
-            direction: 'x',
-            fromBottom: true,
-          }"
+          v-prlx="{ speed: 1.2, reverse: true, direction: 'x', fromBottom: true }"
         >
           <img :src="image" alt />
         </div>
@@ -69,7 +64,8 @@ export default {
   margin-right: 50px;
 }
 img {
-  width: 600px;
-  margin-right: 10px;
+  height: 400px;
+  margin-right: 50px;
 }
 </style>
+

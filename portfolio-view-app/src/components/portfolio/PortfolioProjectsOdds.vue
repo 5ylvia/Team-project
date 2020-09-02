@@ -1,13 +1,13 @@
 <template>
   <router-link
     :to="{
-      name: 'project',
-      params: {
-        portfolioId: portfolio.id,
-        projectId: project.id,
-      },
-    }"
-    @click="getProject"
+          name: 'project',
+          params: {
+            portfolioId: portfolio.id,
+            projectId: project.id,
+            project: project,
+          },
+        }"
   >
     <div class="odds-container">
       <h1 class="odds-project-title">{{ project.title }}</h1>
@@ -17,11 +17,11 @@
           v-bind:key="index"
           class="odds-image-box"
           v-prlx="{
-            speed: 1.2,
-            reverse: false,
-            direction: 'x',
-            fromBottom: true,
-          }"
+              speed: 1.2,
+              reverse: false,
+              direction: 'x',
+              fromBottom: true,
+            }"
         >
           <img :src="image" alt />
         </div>
@@ -32,10 +32,7 @@
 
 <script>
 export default {
-  props: {
-    project: Object,
-    portfolio: Object,
-  },
+  props: ["project", "portfolio"],
 };
 </script>
 
@@ -65,13 +62,13 @@ export default {
   cursor: pointer;
 }
 
-.odds-image-box {
+.odds-image-container {
   height: 400px;
   width: 75%;
   margin-right: 50px;
 }
 img {
-  width: 600px;
-  margin-right: 10px;
+  height: 400px;
+  margin-right: 50px;
 }
 </style>
