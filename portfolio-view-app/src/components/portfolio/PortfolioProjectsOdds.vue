@@ -15,7 +15,6 @@
         <div
           v-for="(image, index) in project.images"
           v-bind:key="index"
-          class="odds-image-box"
           v-prlx="{
               speed: 1.2,
               reverse: false,
@@ -46,29 +45,44 @@ export default {
 .odds-project-title {
   z-index: 5;
   position: absolute;
-  right: 10px;
-  bottom: -27px;
-  text-align: right;
+  left: 85px;
+  text-align: left;
   font-size: 10rem;
   font-family: "Sail", cursive;
   text-transform: lowercase;
   color: white;
+
+  /* new */
+  width: 50%;
+  max-width: 800px;
+  bottom: 10px;
+  line-height: 0.5;
 }
 
 .odds-image-container {
   display: flex;
   justify-content: flex-start;
-  transform: translateX(-550px);
+  transform: translateX(-50%);
   cursor: pointer;
 }
 
-.odds-image-container {
-  height: 400px;
-  width: 75%;
-  margin-right: 50px;
-}
 img {
   height: 400px;
   margin-right: 50px;
+}
+@media screen and (max-width: 1200px) {
+  .odds-image-container {
+    transform: translateX(-100%);
+  }
+}
+@media screen and (max-width: 800px) {
+  .odds-image-container {
+    transform: translateX(-200%);
+  }
+}
+@media screen and (max-width: 600px) {
+  .odds-image-container {
+    transform: translateX(-300%);
+  }
 }
 </style>
