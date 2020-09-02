@@ -44,7 +44,12 @@
         :project="project"
         :portfolio="portfolio"
       />
-      <PortfolioProjectsOdds v-else :project="project" :portfolio="portfolio" />
+      <PortfolioProjectsOdds
+        v-else
+        :project="project"
+        :portfolio="portfolio"
+        @click="getProject"
+      />
     </div>
   </div>
 </template>
@@ -53,7 +58,6 @@
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
 import PortfolioProjects from "./PortfolioProjects";
-
 import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
 
 export default {
@@ -61,7 +65,6 @@ export default {
     ContactButton,
     ContactTemplate,
     PortfolioProjects,
-
     PortfolioProjectsOdds,
   },
   name: "PortfolioTemplate",

@@ -1,17 +1,17 @@
 <template>
-  <div class="odds-container">
-    <h1 class="odds-project-title">{{ project.title }}</h1>
-    <div class="odds-image-container">
-      <router-link
-        :to="{
-          name: 'project',
-          params: {
-            portfolioId: portfolio.id,
-            projectId: project.id,
-            project: project,
-          },
-        }"
-      >
+  <router-link
+    :to="{
+      name: 'project',
+      params: {
+        portfolioId: portfolio.id,
+        projectId: project.id,
+      },
+    }"
+    @click="getProject"
+  >
+    <div class="odds-container">
+      <h1 class="odds-project-title">{{ project.title }}</h1>
+      <div class="odds-image-container">
         <div
           v-for="(image, index) in project.images"
           v-bind:key="index"
@@ -22,15 +22,20 @@
             direction: 'x',
             fromBottom: true,
           }"
-        ></div>
-      </router-link>
+        >
+          <img :src="image" alt />
+        </div>
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
 export default {
-  props: ["project", "portfolio"],
+  props: {
+    project: Object,
+    portfolio: Object,
+  },
 };
 </script>
 
@@ -38,16 +43,16 @@ export default {
 .odds-container {
   width: 100%;
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 
 .odds-project-title {
   z-index: 5;
   position: absolute;
   right: 10px;
-  bottom: -27px;
+  bottom: -30px;
   text-align: right;
-  font-size: 100px;
+  font-size: 10rem;
   font-family: "Sail", cursive;
   text-transform: lowercase;
   color: white;
@@ -61,9 +66,12 @@ export default {
 }
 
 .odds-image-box {
-  background: #bdbdbd;
   height: 400px;
   width: 75%;
   margin-right: 50px;
+}
+img {
+  width: 600px;
+  margin-right: 10px;
 }
 </style>

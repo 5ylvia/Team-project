@@ -2,9 +2,9 @@
   <div>
     <h1>{{ project.title }}</h1>
     <project-sidebar></project-sidebar>
-    <!-- <div v-for="(projects, index) in portfolio" :key="index">
-      {{ portfolio.project.images[0] }}
-    </div> -->
+    <div v-for="(detail, index) in project" :key="index">
+      {{ project.detail }}
+    </div>
 
     <div v-for="(value, index) in project" v-bind:key="index">
       <p>{{ value[0] }}</p>
@@ -27,20 +27,25 @@ export default {
 
   data: function() {
     return {
-      portfolio: {},
+      // portfolio: {},
       project: {},
     };
   },
-  created: function() {
-    const portfolioId = this.$route.params.portfolioId;
-    const projectId = this.$route.params.projectId;
-    this.$http
-      .get(
-        `${process.env.VUE_APP_API_URL}/portfolio/${portfolioId}/projects/${projectId}`
-      )
-      .then(function() {
-        this.project = this.$route.params.project;
-      });
+  methods: {
+    getProject: function() {
+      const portfolioId = this.$route.params.portfolioId;
+      const projectId = this.$route.params.projectId;
+      this.$http
+        .get(
+          `${process.env.VUE_APP_API_URL}/portfolio/${portfolioId}/projects/${projectId}`
+        )
+        .then(function() {
+          this.project = this.$route.params.project;
+        });
+    },
+  },
+  mounted() {
+    this.getProject();
   },
 };
 </script>
