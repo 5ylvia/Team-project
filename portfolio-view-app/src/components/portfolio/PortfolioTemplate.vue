@@ -18,20 +18,35 @@
 
     <!-- Fade in -->
     <transition name="fade" appear>
-      <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
+      <div
+        class="modal-overlay"
+        v-if="showModal"
+        @click="showModal = false"
+      ></div>
     </transition>
 
     <!-- Contact  -->
     <transition name="slide" appear v-if="showModal">
-      <ContactTemplate :portfolio="portfolio" v-on:changeModal="showModal = false" />
+      <ContactTemplate
+        :portfolio="portfolio"
+        v-on:changeModal="showModal = false"
+      />
     </transition>
 
     <!-- Project container -->
-    <div class="content" v-for="(project, id) in portfolio.projects" v-bind:key="id">
 
-      <PortfolioProjects v-if="id % 2 == 0" :project="project" :portfolio="portfolio" />
+    <div
+      class="content"
+      v-for="(project, index) in portfolio.projects"
+      v-bind:key="index"
+    >
+      <PortfolioProjects
+        v-if="index % 2 == 0"
+        :project="project"
+        :portfolio="portfolio"
+      />
+
       <PortfolioProjectsOdds v-else :project="project" :portfolio="portfolio" />
-
     </div>
   </div>
 </template>
@@ -42,7 +57,6 @@ import ContactTemplate from "@/components/contact/ContactTemplate";
 import PortfolioProjects from "./PortfolioProjects";
 
 import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
-
 
 export default {
   components: {
@@ -55,24 +69,31 @@ export default {
   name: "PortfolioTemplate",
   //test
   data: function() {
-
     return {
       showModal: false,
       portfolio: {
         projects: [],
-        sources: []
-      }
+      },
+
     };
   },
   methods: {
     currentPortfolio: function() {
       const id = this.$route.params.portfolioId;
       this.$http
-        .get(`${process.env.VUE_APP_API_URL}/portfolio/${id}`)
+        .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}`)
         .then(function(data) {
-          this.portfolio = data.body.portfolio;
-          this.projects = data.body.portfolio.projects;
-          this.sources = data.body.portfolio.sources;
+          this.portfolio = data.body;
+        });
+      this.getProjects();
+
+    },
+    getProjects: function() {
+      const id = this.$route.params.portfolioId;
+      this.$http
+        .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}/projects`)
+        .then(function(data) {
+          this.portfolio.projects = data.body;
         });
     }
   },
@@ -85,7 +106,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 .skil-container {
   width: 675px;
   margin: 200px 80px 80px 80px;
