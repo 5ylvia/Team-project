@@ -2,7 +2,11 @@
   <div class="modal">
     <div class="modal__profile padding-box">
       <div>
-        <h1 class="modal__profile--title" :style="portfolio">{{ portfolio.name }}</h1>
+        <h1 class="modal__profile--title" :style="portfolio">
+          {{ portfolio.firstName}}
+          <br />
+          {{ portfolio.lastName}}
+        </h1>
         <h4 class="modal__profile--personal-site">
           Personal site
           <i :style="portfolio" class="fas fa-external-link-alt"></i>
@@ -45,7 +49,7 @@
 
 <script>
 export default {
-  props: ["portfolio"],
+  props: ["portfolio"]
 };
 </script>
 
@@ -86,6 +90,7 @@ export default {
   justify-content: space-between;
 }
 .modal__profile--title {
+  line-height: 0.8;
   text-transform: lowercase;
   font-family: "Sail", cursive;
   font-size: 36px;
