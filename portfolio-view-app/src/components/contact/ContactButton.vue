@@ -1,7 +1,12 @@
 <template>
   <div>
-    <button v-on:click="updateShowModal()" :style="{background: portfolio.color }">
-      <p :style="portfolio">{{portfolio.name}}, Make Contact</p>
+    <button
+      v-on:click="updateShowModal()"
+      :style="{ background: portfolio.color }"
+    >
+      <p :style="portfolio">
+        {{ portfolio.firstName }} {{ portfolio.lastName }}, Make Contact
+      </p>
     </button>
   </div>
 </template>
