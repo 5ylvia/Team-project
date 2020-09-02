@@ -27,7 +27,7 @@ export default {
     getPortfolios: function() {
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios`)
-        .then(function(data) {
+        .then(function (data) {
           this.portfolios = data.body;
         });
     }

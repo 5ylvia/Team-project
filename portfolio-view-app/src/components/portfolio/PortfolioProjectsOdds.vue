@@ -1,28 +1,39 @@
 <template>
   <div class="odds-container">
-    <h1 class="odds-project-title">{{project.title}}</h1>
+    <h1 class="odds-project-title">{{ project.title }}</h1>
     <div class="odds-image-container">
-      <div
-        v-for="(image, index) in project.images"
-        v-bind:key="index"
-        class="odds-image-box"
-        v-prlx="{speed: 1.2,reverse: false,direction: 'x',fromBottom: true}"
+      <router-link
+        :to="{
+          name: 'project',
+          params: {
+            portfolioId: portfolio.id,
+            projectId: project.id,
+            project: project,
+          },
+        }"
       >
-        <router-link
-          :to="{
-            name: 'project',
-          params: { portfolioId: portfolio.id, projectId: project.id },
+        <div
+          v-for="(image, index) in project.images"
+          v-bind:key="index"
+          class="odds-image-box"
+          v-prlx="{
+            speed: 1.2,
+            reverse: false,
+            direction: 'x',
+            fromBottom: true,
           }"
-        ></router-link>
-      </div>
+        ></div>
+      </router-link>
+
     </div>
   </div>
 </template>
 
 <script>
 export default {
+
   props: ["project", "portfolio"]
-};
+
 </script>
 
 <style scoped>
@@ -57,4 +68,5 @@ export default {
   width: 75%;
   margin-right: 50px;
 }
+
 </style>

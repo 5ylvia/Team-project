@@ -10,22 +10,32 @@ const app = express();
 const isProduction = process.env.MODE_ENV === "production";
 
 app.use(cors());
+
 app.use(express.json());
 dotenv.config();
 
 //Mongoose errors go away
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  "mongodb+srv://sylvia:YOOBEE@cluster0.syz6k.mongodb.net/team-portfolio?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  }
+);
+// .catch((err) => {
+//   console.log(err);
+// });
 
-mongoose.connection.on("open", (ref) => {
-  console.log("Mongo.DB connected");
+
+mongoose.connection.on("open", function (ref) {
+  console.log("MongoDB connected");
+
   app.listen(3000, () => {
-    console.log("listening on port 3k");
+    console.log("Listening on port 3000...");
   });
 });
+
 
 //ROUTING ------------------------------------
 app.use(morgan("dev"));

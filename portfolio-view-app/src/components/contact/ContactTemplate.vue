@@ -2,22 +2,30 @@
   <div class="modal">
     <div class="modal__profile padding-box">
       <div>
-        <h1 class="modal__profile--title" :style="portfolio">{{portfolio.name}}</h1>
+        <h1 class="modal__profile--title" :style="portfolio">
+          {{ portfolio.name }}
+        </h1>
         <h4 class="modal__profile--personal-site">
           Personal site
           <i :style="portfolio" class="fas fa-external-link-alt"></i>
         </h4>
       </div>
       <p class="modal__profile--bio">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Sed accusamus eligendi nam praesentium ratione. Lorem, ipsum dolor sit
-        amet consectetur adipisicing elit.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed accusamus
+        eligendi nam praesentium ratione. Lorem, ipsum dolor sit amet
+        consectetur adipisicing elit.
       </p>
     </div>
     <div class="modal__skills padding-box">
       <h3 class="modal--title">SKILLS</h3>
       <ul class="modal__skills--ul">
-        <li class="modal__skills--list" v-for="skill in portfolio.skills" :key="skill">{{skill}}</li>
+        <li
+          class="modal__skills--list"
+          v-for="skill in portfolio.skills"
+          :key="skill"
+        >
+          {{ skill }}
+        </li>
       </ul>
     </div>
     <div class="modal__contact padding-box">
@@ -32,10 +40,12 @@
           class="modal__contact--list"
           v-for="contact in portfolio.contact"
           :key="contact"
-        >{{contact}}</li>
+        >
+          {{ contact }}
+        </li>
       </ul>
     </div>
-    <div class="modal_color" :style="{background: portfolio.color }">
+    <div class="modal_color" :style="{ background: portfolio.color }">
       <button @click="$emit(`changeModal`)">
         <i class="far fa-arrow-alt-circle-right"></i>
       </button>
@@ -49,7 +59,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 .modal {
   position: absolute;
   top: 50%;

@@ -30,6 +30,8 @@ const routes = [
     name: "project",
     path: "/portfolio/:portfolioId/projects",
     component: () => import("./components/project/ProjectTemplate.vue"),
+
+
   },
   {
     name: "edit",
