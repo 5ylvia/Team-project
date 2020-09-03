@@ -30,7 +30,6 @@
 
     <div class="content" v-for="(project, index) in portfolio.projects" v-bind:key="index">
       <PortfolioProjects v-if="index % 2 == 0" :project="project" :portfolio="portfolio" />
-
       <PortfolioProjectsOdds v-else :project="project" :portfolio="portfolio" />
     </div>
   </div>
@@ -40,7 +39,7 @@
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
 import PortfolioProjects from "./PortfolioProjects";
-import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
+// import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
 
 export default {
   components: {
@@ -48,7 +47,7 @@ export default {
     ContactTemplate,
     PortfolioProjects,
 
-    PortfolioProjectsOdds,
+    // PortfolioProjectsOdds,
   },
   name: "PortfolioTemplate",
   //test

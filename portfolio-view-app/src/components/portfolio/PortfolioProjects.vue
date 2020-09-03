@@ -51,7 +51,6 @@ export default {
   text-transform: lowercase;
   color: white;
 
-  /* new */
   width: 50%;
   max-width: 800px;
   bottom: 10px;

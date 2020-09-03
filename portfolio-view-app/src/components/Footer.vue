@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>Portfolio site</p>
+    <p class="admin">Admin area</p>
   </div>
 </template>
 
@@ -16,5 +17,9 @@ div {
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
+}
+.admin {
+  color: #c8bfba;
+  font-size: 0.8rem;
 }
 </style>

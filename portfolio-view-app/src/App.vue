@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <my-header class="nav" v-if="this.$route.path !== '/'"></my-header>
-    <router-view :key="$route.fullPath"></router-view>
-    <my-footer></my-footer>
+    <router-view></router-view>
+    <my-footer v-if="this.$route.path == '/'"></my-footer>
   </div>
 </template>
 

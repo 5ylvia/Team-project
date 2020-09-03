@@ -15,14 +15,11 @@ app.use(express.json());
 dotenv.config();
 
 //Mongoose errors go away
-mongoose.connect(
-  "mongodb+srv://sylvia:YOOBEE@cluster0.syz6k.mongodb.net/team-portfolio?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  }
-);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
 // .catch((err) => {
 //   console.log(err);
 // });
