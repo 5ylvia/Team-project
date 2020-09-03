@@ -39,7 +39,7 @@
 import ContactButton from "@/components/contact/ContactButton";
 import ContactTemplate from "@/components/contact/ContactTemplate";
 import PortfolioProjects from "./PortfolioProjects";
-// import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
+import PortfolioProjectsOdds from "./PortfolioProjectsOdds";
 
 export default {
   components: {
@@ -47,44 +47,44 @@ export default {
     ContactTemplate,
     PortfolioProjects,
 
-    // PortfolioProjectsOdds,
+    PortfolioProjectsOdds
   },
   name: "PortfolioTemplate",
   //test
-  data: function () {
+  data: function() {
     return {
       showModal: false,
       portfolio: {
         projects: Array,
-        sources: Object,
-      },
+        sources: Object
+      }
     };
   },
   methods: {
-    currentPortfolio: function () {
+    currentPortfolio: function() {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}`)
-        .then(function (data) {
+        .then(function(data) {
           this.portfolio = data.body;
         });
       this.getProjects();
     },
-    getProjects: function () {
+    getProjects: function() {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}/projects`)
-        .then(function (data) {
+        .then(function(data) {
           this.portfolio.projects = data.body;
         });
-    },
+    }
   },
   watch: {
-    $route: "currentPortfolio",
+    $route: "currentPortfolio"
   },
-  created: function () {
+  created: function() {
     this.currentPortfolio();
-  },
+  }
 };
 </script>
 

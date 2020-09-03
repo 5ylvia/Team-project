@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  props: ["project", "portfolio"],
+  props: ["project", "portfolio"]
 };
 </script>
 
@@ -38,7 +38,7 @@ export default {
 .container {
   width: 100%;
   position: relative;
-  margin-bottom: 200px;
+  margin-bottom: 80px;
 }
 
 .project-title {
@@ -46,13 +46,12 @@ export default {
   position: absolute;
   right: 85px;
   text-align: right;
-  font-size: 10rem;
+  font-size: 15rem;
   font-family: "Sail", cursive;
   text-transform: lowercase;
-  color: white;
+  color: rgba(255, 255, 255, 0.863);
 
   width: 50%;
-  max-width: 800px;
   bottom: 10px;
   line-height: 0.5;
 }
