@@ -30,7 +30,6 @@
 
     <div class="content" v-for="(project, index) in portfolio.projects" v-bind:key="index">
       <PortfolioProjects v-if="index % 2 == 0" :project="project" :portfolio="portfolio" />
-
       <PortfolioProjectsOdds v-else :project="project" :portfolio="portfolio" />
     </div>
   </div>
@@ -48,44 +47,44 @@ export default {
     ContactTemplate,
     PortfolioProjects,
 
-    PortfolioProjectsOdds,
+    PortfolioProjectsOdds
   },
   name: "PortfolioTemplate",
   //test
-  data: function () {
+  data: function() {
     return {
       showModal: false,
       portfolio: {
         projects: Array,
-        sources: Object,
-      },
+        sources: Object
+      }
     };
   },
   methods: {
-    currentPortfolio: function () {
+    currentPortfolio: function() {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}`)
-        .then(function (data) {
+        .then(function(data) {
           this.portfolio = data.body;
         });
       this.getProjects();
     },
-    getProjects: function () {
+    getProjects: function() {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}/projects`)
-        .then(function (data) {
+        .then(function(data) {
           this.portfolio.projects = data.body;
         });
-    },
+    }
   },
   watch: {
-    $route: "currentPortfolio",
+    $route: "currentPortfolio"
   },
-  created: function () {
+  created: function() {
     this.currentPortfolio();
-  },
+  }
 };
 </script>
 

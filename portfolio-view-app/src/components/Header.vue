@@ -71,7 +71,7 @@ li {
 a {
   color: #c8bfba;
 }
-.router-link-exact-active {
+.router-link-active {
   color: var(--color);
 }
 </style>

@@ -12,11 +12,7 @@
           <i :style="portfolio" class="fas fa-external-link-alt"></i>
         </h4>
       </div>
-      <p class="modal__profile--bio">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed accusamus
-        eligendi nam praesentium ratione. Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit.
-      </p>
+      <p class="modal__profile--bio">{{portfolio.description}}</p>
     </div>
     <div class="modal__skills padding-box">
       <h3 class="modal--title">SKILLS</h3>
