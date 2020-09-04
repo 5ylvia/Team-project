@@ -47,6 +47,7 @@ export default {
 
 <style scoped>
 .logo {
+  position: fixed;
   width: 175px;
   height: 175px;
 }

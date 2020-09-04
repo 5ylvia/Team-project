@@ -73,4 +73,5 @@ export default {
   text-orientation: upright;
   margin-top: 30%;
 }
+
 </style>
