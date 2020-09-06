@@ -1,12 +1,14 @@
 <template>
   <div>
     <button
+      id="contact-btn"
       v-on:click="updateShowModal()"
       :style="{ background: portfolio.color }"
     >
-      <p :style="portfolio">
-        {{ portfolio.firstName }} {{ portfolio.lastName }}, Make Contact
-      </p>
+      <p
+        id="contact-name"
+        :style="portfolio"
+      >{{ portfolio.firstName }} {{ portfolio.lastName }}, Make Contact</p>
     </button>
   </div>
 </template>
@@ -23,8 +25,8 @@ export default {
 };
 </script>
 
-<style scoped>
-p {
+<style>
+#contact-name {
   transform: rotate(270deg);
   text-align: left;
   width: 300px;
@@ -34,7 +36,7 @@ p {
   top: -160px;
 }
 
-button {
+#contact-btn {
   /* REMOVE DEFAILT */
   appearance: none;
   outline: none;
@@ -50,18 +52,18 @@ button {
   transition: 0.4s ease-out;
 
   /* POSTIONING */
-  z-index: 5;
-  position: absolute;
-  right: 80px;
+  z-index: 10;
+  position: fixed;
+  right: 40px;
   top: 45%;
 }
 
-button:hover {
+#contact-btn:hover {
   box-shadow: 0px 4px rgba(0, 0, 0, 0.6);
 }
 
 @media screen and (max-width: 1000px) {
-  p {
+  #contact-name {
     display: none;
   }
 }

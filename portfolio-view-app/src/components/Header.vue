@@ -1,6 +1,6 @@
 <template>
   <header>
-    <router-link v-bind:to="'/'">
+    <router-link to="/">
       <img src="@/assets/logo.svg/" alt="stv logo" class="logo" />
     </router-link>
     <li
@@ -14,8 +14,7 @@
           name: 'portfolio',
           params: { portfolioId: portfolio._id },
         }"
-        >{{ portfolio.firstName }}</router-link
-      >
+      >{{ portfolio.firstName }}</router-link>
     </li>
   </header>
 </template>
@@ -23,23 +22,28 @@
 <script>
 export default {
   name: "Header",
-  data: function() {
+  data: function () {
     return {
       portfolios: [],
     };
   },
 
   methods: {
-    getPortfolios: function() {
+    getPortfolios: function () {
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios`)
 
-        .then(function(data) {
+        .then(function (data) {
           this.portfolios = data.body;
         });
     },
+    // fixedLogo: function () {
+    //   if (["/project"].includes.this.$route.path) {
+    //     this.$el.querySelector(".logo").style.display = "none";
+    //   }
+    // },
   },
-  created: function() {
+  created: function () {
     this.getPortfolios();
   },
 };
@@ -47,7 +51,6 @@ export default {
 
 <style scoped>
 .logo {
-  position: fixed;
   width: 175px;
   height: 175px;
 }

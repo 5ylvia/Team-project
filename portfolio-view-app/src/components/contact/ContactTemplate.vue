@@ -45,16 +45,15 @@
 
 <script>
 export default {
-  props: ["portfolio"]
+  props: ["portfolio"],
 };
 </script>
 
 <style>
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 25%;
+  right: 0;
   z-index: 99;
   width: 1000px;
   height: 300px;
@@ -64,6 +63,7 @@ export default {
   text-align: left;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 40px;
+  box-shadow: -1em 0 2em rgba(0, 0, 0, 0.2);
 }
 .modal__social-media {
   margin: 20px 0px;
@@ -89,7 +89,7 @@ export default {
   line-height: 0.8;
   text-transform: lowercase;
   font-family: "Sail", cursive;
-  font-size: 36px;
+  font-size: 4rem;
 }
 .modal__profile--personal-site {
   font-weight: 400;
@@ -117,7 +117,7 @@ export default {
 
 .slide-enter,
 .slide-leave-to {
-  transform: translateY(-50%) translateX(100vw);
+  transform: translateY(0) translateX(100vw);
 }
 button i {
   font-size: 25px;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="portfolio-template">
     <!-- Skills -->
     <section>
       <div class="skil-container">
@@ -47,57 +47,59 @@ export default {
     ContactTemplate,
     PortfolioProjects,
 
-    PortfolioProjectsOdds
+    PortfolioProjectsOdds,
   },
   name: "PortfolioTemplate",
   //test
-  data: function() {
+  data: function () {
     return {
       showModal: false,
       portfolio: {
         projects: Array,
-        sources: Object
-      }
+        sources: Object,
+      },
     };
   },
   methods: {
-    currentPortfolio: function() {
+    currentPortfolio: function () {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}`)
-        .then(function(data) {
+        .then(function (data) {
           this.portfolio = data.body;
         });
       this.getProjects();
     },
-    getProjects: function() {
+    getProjects: function () {
       const id = this.$route.params.portfolioId;
       this.$http
         .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}/projects`)
-        .then(function(data) {
+        .then(function (data) {
           this.portfolio.projects = data.body;
         });
-    }
+    },
   },
   watch: {
-    $route: "currentPortfolio"
+    $route: "currentPortfolio",
   },
-  created: function() {
+  created: function () {
     this.currentPortfolio();
-  }
+  },
 };
 </script>
 
 <style>
+#portfolio-template {
+  height: 100%;
+}
 .skil-container {
   width: 675px;
   margin: 200px 80px 80px 80px;
 }
 .skills {
-  font-size: 3rem;
+  font-size: 6rem;
   text-align: left;
   font-family: "Playfair Display", serif;
-  font-size: 75px;
   text-transform: uppercase;
   line-height: 0.7;
   padding-left: 20px;
@@ -106,7 +108,7 @@ export default {
 }
 
 .modal-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -114,6 +116,7 @@ export default {
   z-index: 98;
   background-color: rgba(0, 0, 0, 0.3);
   overflow-y: hidden;
+  height: 100%;
 }
 
 .fade-enter-active,

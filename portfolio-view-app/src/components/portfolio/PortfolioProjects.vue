@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  props: ["project", "portfolio"]
+  props: ["project", "portfolio"],
 };
 </script>
 
@@ -49,7 +49,7 @@ export default {
   font-size: 15rem;
   font-family: "Sail", cursive;
   text-transform: lowercase;
-  color: rgba(255, 255, 255, 0.863);
+  color: rgba(255, 255, 255, 0.7);
 
   width: 50%;
   bottom: 10px;

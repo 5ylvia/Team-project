@@ -16,8 +16,8 @@
       </div>
     </div>
     <div :style="portfolio" class="sidebar-name">
-        <p :style="portfolio">{{ portfolio.firstName }} {{ portfolio.lastName }}, Project List</p>
-        <div class="sidebar-name-line" :style="portfolio"></div>
+      <p :style="portfolio">{{ portfolio.firstName }} {{ portfolio.lastName }}, Project List</p>
+      <div class="sidebar-name-line" :style="portfolio"></div>
     </div>
   </div>
 </template>
@@ -25,41 +25,21 @@
 <script>
 export default {
   name: "ProjectSidebar",
-
-  data: function () {
-    return {
-      portfolio: {
-        projects: Array,
-      },
-    };
-  },
-  methods: {
-    currentPortfolio: function () {
-      const id = this.$route.params.portfolioId;
-      this.$http
-        .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}`)
-        .then(function (data) {
-          this.portfolio = data.body;
-        });
-      this.getProjects();
+  props: {
+    portfolio: {
+      projects: Array,
+      sources: Object,
     },
-    getProjects: function () {
-      const id = this.$route.params.portfolioId;
-      this.$http
-        .get(`${process.env.VUE_APP_API_URL}/portfolios/${id}/projects`)
-        .then(function (data) {
-          this.portfolio.projects = data.body;
-        });
+    project: {
+      title: String,
+      description: Object,
+      images: Object,
     },
-  },
-  created: function () {
-    this.currentPortfolio();
   },
 };
 </script>
 
 <style scoped>
-
 .sidebar {
   height: 100%;
   position: fixed;
@@ -77,8 +57,6 @@ export default {
 .sidebar-name {
   margin-left: 10px;
   position: relative;
-  
-
 }
 p {
   writing-mode: vertical-rl;
@@ -88,9 +66,8 @@ p {
   left: -70px;
 }
 .sidebar-name-line {
-height: 100%;
-margin: 10px;
-border-left: 1px solid;
+  height: 100%;
+  margin: 10px;
+  border-left: 1px solid;
 }
-
 </style>
