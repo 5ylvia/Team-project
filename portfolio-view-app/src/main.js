@@ -31,11 +31,6 @@ const routes = [
     path: "/portfolio/:portfolioId/project/:projectId",
     component: () => import("./components/project/ProjectTemplate.vue"),
   },
-  {
-    name: "edit",
-    path: "/portfolio/:portfolioId?/edit",
-    component: () => import("./components/edit-portfolio/EditPortfolio.vue"),
-  },
 ];
 
 const router = new VueRouter({

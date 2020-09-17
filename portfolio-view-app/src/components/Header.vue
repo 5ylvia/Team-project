@@ -16,6 +16,7 @@
         }"
       >{{ portfolio.firstName }}</router-link>
     </li>
+    <router-link v-bind:to="{ name: 'edit' }">Edit Project</router-link>
   </header>
 </template>
 
@@ -37,11 +38,6 @@ export default {
           this.portfolios = data.body;
         });
     },
-    // fixedLogo: function () {
-    //   if (["/project"].includes.this.$route.path) {
-    //     this.$el.querySelector(".logo").style.display = "none";
-    //   }
-    // },
   },
   created: function () {
     this.getPortfolios();

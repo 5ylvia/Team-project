@@ -36,7 +36,7 @@
       </ul>
     </div>
     <div class="modal_color" :style="{ background: portfolio.color }">
-      <button @click="$emit(`changeModal`)">
+      <button class="modal-btn--closed" @click="$emit(`changeModal`)">
         <i class="far fa-arrow-alt-circle-right"></i>
       </button>
     </div>
@@ -119,12 +119,12 @@ export default {
 .slide-leave-to {
   transform: translateY(0) translateX(100vw);
 }
-button i {
+.modal-btn--closed i {
   font-size: 25px;
   color: white;
 }
 
-button {
+.modal-btn--closed {
   margin-top: 10px;
   appearance: none;
   outline: none;
@@ -145,11 +145,11 @@ button {
     grid-template-rows: 1fr 1fr 50px;
   }
   .padding-box {
-    padding: 10px;
+    padding: 0 40px;
   }
   .modal__profile {
     grid-column: 1 / 7;
-    padding: 10px;
+    padding: 40px 40px 0;
   }
   .modal__skills {
     grid-row: 2;
